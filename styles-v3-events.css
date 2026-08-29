@@ -1,0 +1,295 @@
+/* ==========================================================================
+   Bows for Battle - events page
+   Loaded after styles.css and styles-v2.css. Only events.html needs it.
+
+   Component patterns follow the Tri-County Archers schedule page; colours
+   are BFB's own.
+   ========================================================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --------------------------------------------------------------------------
+   FILTER CHIPS
+   -------------------------------------------------------------------------- */
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+}
+
+.filters-lbl {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--accent-bright);
+  margin-right: 0.2rem;
+}
+
+.chip {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  color: #f3f0e7;
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: none;
+  cursor: pointer;
+}
+
+.chip:hover,
+.chip:focus-visible {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: var(--accent-bright);
+}
+
+.chip.on {
+  background: var(--accent);
+  border-color: var(--accent-bright);
+  color: #ffffff;
+}
+
+.ev-count-line {
+  font-size: 0.86rem;
+  opacity: 0.85;
+  margin: 0 0 0.7rem;
+}
+
+/* --------------------------------------------------------------------------
+   EVENT TABLE
+   The .table-wrap around it already carries the dark panel treatment from
+   styles.css, so the table itself stays transparent.
+   -------------------------------------------------------------------------- */
+
+.ev-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.ev-table thead th {
+  text-align: left;
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 0.6rem 0.7rem;
+  border-bottom: 2px solid var(--accent);
+  white-space: nowrap;
+}
+
+.ev-table td {
+  vertical-align: top;
+  padding: 0.85rem 0.7rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.ev-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.ev-date {
+  white-space: nowrap;
+  width: 1%;
+}
+
+.ev-date-main {
+  display: block;
+  font-weight: 800;
+}
+
+.ev-countdown {
+  display: block;
+  margin-top: 0.15rem;
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent-bright);
+}
+
+.ev-name {
+  display: block;
+  font-size: 1.08rem;
+  font-weight: 800;
+  margin-bottom: 0.3rem;
+}
+
+.ev-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+  margin-bottom: 0.35rem;
+}
+
+.ev-badge {
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: 1px solid transparent;
+}
+
+.ev-cat {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #f3f0e7;
+}
+
+.ev-who-veterans {
+  background: rgba(42, 109, 59, 0.5);
+  border-color: var(--accent-bright);
+  color: #eaf7ee;
+}
+
+.ev-who-public {
+  background: rgba(60, 92, 120, 0.55);
+  border-color: #9dc4e2;
+  color: #eaf3fa;
+}
+
+.ev-who-volunteers {
+  background: rgba(120, 88, 30, 0.55);
+  border-color: #e3b96a;
+  color: #fbf1de;
+}
+
+.ev-flag {
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  border-radius: 999px;
+  padding: 0.15rem 0.6rem;
+}
+
+.ev-loc {
+  display: block;
+  font-size: 0.88rem;
+  opacity: 0.9;
+  margin-bottom: 0.45rem;
+}
+
+.ev-toggle {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  color: #f3f0e7;
+  border-radius: 6px;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.ev-toggle:hover,
+.ev-toggle:focus-visible {
+  border-color: var(--accent-bright);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.ev-detail {
+  margin-top: 0.7rem;
+  padding: 0.8rem 0.9rem;
+  background: rgba(0, 0, 0, 0.28);
+  border-left: 4px solid var(--accent-bright);
+  border-radius: 8px;
+  max-width: 46em;
+}
+
+.ev-detail p {
+  margin: 0 0 0.6rem;
+}
+
+.ev-detail .ev-contact {
+  font-size: 0.9rem;
+}
+
+.btn-sm {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8rem;
+}
+
+.ev-time,
+.ev-cost {
+  white-space: nowrap;
+  font-size: 0.92rem;
+}
+
+/* An entirely placeholder event gets an amber edge so it reads as unreal
+   at a glance, consistent with the .example convention elsewhere. */
+.ev-row-example .ev-date {
+  border-left: 4px solid #f0b01e;
+}
+
+/* --------------------------------------------------------------------------
+   NARROW SCREENS
+   The four-column table becomes stacked cards rather than scrolling sideways.
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 700px) {
+  .ev-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .ev-table,
+  .ev-table tbody,
+  .ev-table tr,
+  .ev-table td {
+    display: block;
+    width: 100%;
+  }
+
+  .ev-table tr {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 12px;
+    padding: 0.5rem 0.2rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .ev-table td {
+    border-bottom: 0;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .ev-date {
+    width: auto;
+    white-space: normal;
+  }
+
+  .ev-time::before {
+    content: "Hours: ";
+    font-weight: 800;
+  }
+
+  .ev-cost::before {
+    content: "Cost: ";
+    font-weight: 800;
+  }
+
+  .ev-row-example .ev-date {
+    border-left: 0;
+  }
+
+  .ev-row-example {
+    border-left: 4px solid #f0b01e !important;
+  }
+}

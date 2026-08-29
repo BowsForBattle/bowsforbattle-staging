@@ -3,15 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="The mission and vision of Bows for Battle, and the principles the program is built on.">
-  <title>Bows for Battle | Mission &amp; Vision</title>
+  <meta name="description" content="Every Bows for Battle range day, intro session, work day and fundraiser, with hours, cost and who each one is for.">
+  <title>Bows for Battle | Events</title>
   <link rel="icon" href="Pictures/Logo.png">
-  <meta property="og:title" content="Bows for Battle | Mission &amp; Vision">
-  <meta property="og:description" content="The mission and vision of Bows for Battle, and the principles the program is built on.">
+  <meta property="og:title" content="Bows for Battle | Events">
+  <meta property="og:description" content="Every Bows for Battle range day, intro session, work day and fundraiser, with hours, cost and who each one is for.">
   <meta property="og:image" content="Pictures/Logo.png">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles.css?v=2026.08.29.1">
   <link rel="stylesheet" href="styles-v2.css?v=2026.08.29.1">
+  <link rel="stylesheet" href="styles-v3-events.css?v=2026.08.29.1">
 </head>
 <body class="internal-page">
   <a class="skip-link" href="#main">Skip to main content</a>
@@ -24,9 +25,9 @@
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
-        <a class="active" href="about.html">About</a>
+        <a href="about.html">About</a>
         <a href="programs.html">Programs</a>
-        <a href="events.html">Events</a>
+        <a class="active" href="events.html">Events</a>
         <a href="get-involved.html">Get Involved</a>
         <a href="give.html">Give</a>
         <a href="contact.html">Contact</a>
@@ -40,22 +41,98 @@
       <p><strong>Draft site</strong> &mdash; highlighted text is example content showing what belongs in that spot. It is not real information and must be replaced before this site goes live. &middot; rev 2026.08.29.1</p>
     </div>
   </div>
-  <nav class="subnav" aria-label="Section navigation">
-    <div class="container">
-        <a href="about.html">About Overview</a>
-        <a href="mission.html" class="on">Mission &amp; Vision</a>
-        <a href="story.html">Our Story</a>
-        <a href="board.html">Board &amp; Leadership</a>
-        <a href="transparency.html">Transparency</a>
-    </div>
-  </nav>
-
   <main class="internal-main" id="main">
     <section class="page-intro">
       <div class="container narrow content">
-        <p class="eyebrow">About</p>
-        <h1>Mission &amp; Vision</h1>
-        <p>What we are here to do, stated plainly.</p>
+        <p class="eyebrow">Events</p>
+        <h1>One page, every date.</h1>
+        <p>Range days, intro sessions, work days and fundraisers. Each one says who it is for, what it costs, and where it is. Add any of them to your calendar in one click.</p>
+      </div>
+    </section>
+
+    <section class="anchor-section" id="schedule">
+      <div class="container content">
+
+        <div class="status-note" id="ev-example-note">
+          <strong>These are not real events yet.</strong> Bows for Battle has not scheduled its first
+          session. Everything listed below is an example showing what a real listing will look like.
+          Edit <code>data.js</code> to replace them &mdash; that one file feeds this whole page.
+        </div>
+
+        <h2 id="ev-heading">Upcoming Events</h2>
+
+        <div class="filters" id="ev-filters" role="group" aria-label="Filter events">
+          <span class="filters-lbl">Show</span>
+          <button class="chip on" type="button" data-f="all" aria-pressed="true">Everything</button>
+          <button class="chip" type="button" data-f="veterans" aria-pressed="false">For veterans</button>
+          <button class="chip" type="button" data-f="public" aria-pressed="false">Open to all</button>
+          <button class="chip" type="button" data-f="volunteers" aria-pressed="false">Volunteers</button>
+          <button class="chip" type="button" data-f="Range Day" aria-pressed="false">Range Days</button>
+          <button class="chip" type="button" data-f="Intro" aria-pressed="false">Intro Sessions</button>
+          <button class="chip" type="button" data-f="Fundraiser" aria-pressed="false">Fundraisers</button>
+          <button class="chip" type="button" data-f="Work Day" aria-pressed="false">Work Days</button>
+        </div>
+
+        <p class="ev-count-line"><span id="ev-count"></span> shown</p>
+
+        <div class="table-wrap">
+          <table class="ev-table">
+            <caption class="sr-only">Bows for Battle events, with dates, hours and cost</caption>
+            <thead>
+              <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Event</th>
+                <th scope="col">Hours</th>
+                <th scope="col">Cost</th>
+              </tr>
+            </thead>
+            <tbody id="ev-body"></tbody>
+          </table>
+        </div>
+
+        <div class="status-note" id="ev-empty" hidden></div>
+
+        <p style="margin-top:1rem">
+          <button class="link-button alt" type="button" id="ev-past" aria-pressed="false">Show past events</button>
+        </p>
+      </div>
+    </section>
+
+    <section class="anchor-section muted-section" id="calendar">
+      <div class="container content">
+        <h2>Put the Season on Your Phone</h2>
+        <div class="split-2">
+          <article class="highlight">
+            <h3>Add the whole schedule at once</h3>
+            <p>
+              One file, every upcoming event. Import it into Google Calendar, Apple Calendar or Outlook
+              and the dates come with you.
+            </p>
+            <p><a class="link-button" href="#" id="ev-ics">Download calendar file (.ics)</a></p>
+            <p style="font-size:0.9rem;margin-bottom:0">
+              Prefer one event at a time? Open <strong>Details</strong> on any row above and use
+              <strong>Add to Google Calendar</strong>.
+            </p>
+          </article>
+          <aside class="highlight">
+            <h3>Never miss the first one</h3>
+            <p>
+              We will email when dates are set. Range dates, weather calls, and nothing else &mdash; no
+              more than a couple of messages a month.
+            </p>
+            <p class="form-inert">
+              <strong>Not yet active.</strong> This form is part of the site skeleton and does not
+              submit anywhere.
+            </p>
+            <form aria-label="Event notification signup" onsubmit="return false;">
+              <div class="field">
+                <label for="ev-notify">Email</label>
+                <input id="ev-notify" name="ev-notify" type="email" autocomplete="email">
+              </div>
+              <button type="submit">Notify Me</button>
+            </form>
+          </aside>
+        </div>
       </div>
     </section>
 
@@ -63,45 +140,17 @@
       <div class="container content">
         <div class="split-2">
           <article class="highlight">
-            <h2>Our Mission</h2>
+            <h2>First time coming out?</h2>
             <p>
-              Bows for Battle is a nonprofit organization dedicated to supporting veterans through the
-              discipline, focus, and healing power of archery. Our mission is to put bows in the hands
-              of veterans and create opportunities for them to reconnect with themselves, with fellow
-              veterans, and with the outdoors.
+              What a session is like hour by hour, what to bring, and what it costs &mdash; all on one
+              page.
             </p>
-            <p>
-              Through the fundamentals of archery &mdash; stance, breath, focus, patience, and
-              precision &mdash; veterans are encouraged to center their energy, quiet the noise of
-              daily life, and find strength in the moment. Each shot becomes more than an arrow
-              released; it becomes an act of control, clarity, and personal growth.
-            </p>
-            <p>
-              Bows for Battle believes that time outdoors, shared purpose, and veteran camaraderie can
-              play a powerful role in healing. By providing access to archery equipment, outdoor
-              shooting events, mentorship, and a brotherhood of support, we aim to help veterans
-              rediscover confidence, peace, and connection after service.
-            </p>
+            <p style="margin-bottom:0"><a class="link-button" href="what-happens.html">What Happens</a></p>
           </article>
           <aside class="highlight">
-            <h2>Our Vision</h2>
-            <p>
-              Bows for Battle envisions a future where no veteran feels isolated, forgotten, or
-              without purpose.
-            </p>
-            <p>
-              Through archery, outdoor connection, and veteran camaraderie, we strive to reduce
-              avoidable veteran loss by creating spaces where veterans can regain focus, build trust,
-              find peace, and reconnect with a community that understands them.
-            </p>
-            <h2 style="margin-top:1.4rem">What We Stand On</h2>
-            <ul class="list">
-              <li><strong>Stance</strong> &mdash; build stability before action.</li>
-              <li><strong>Breath</strong> &mdash; regulate stress and sharpen attention.</li>
-              <li><strong>Focus</strong> &mdash; stay present with intentional movement.</li>
-              <li><strong>Patience</strong> &mdash; prioritize discipline and repetition.</li>
-              <li><strong>Precision</strong> &mdash; reinforce confidence through control.</li>
-            </ul>
+            <h2>Not sure you qualify?</h2>
+            <p>Our eligibility criteria are short, specific, and say plainly what we are not.</p>
+            <p style="margin-bottom:0"><a class="link-button alt" href="eligibility.html">Check Eligibility</a></p>
           </aside>
         </div>
       </div>
@@ -192,5 +241,7 @@
       </div>
     </div>
   </footer>
+  <script src="data.js?v=2026.08.29.1"></script>
+  <script src="events.js?v=2026.08.29.1"></script>
 </body>
 </html>

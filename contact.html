@@ -3,11 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact Bows for Battle.">
+  <meta name="description" content="Contact Bows for Battle about veteran participation, volunteering, hosting, partnerships or donations.">
   <title>Bows for Battle | Contact</title>
-  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="Pictures/Logo.png">
+  <meta property="og:title" content="Bows for Battle | Contact">
+  <meta property="og:description" content="Contact Bows for Battle about veteran participation, volunteering, hosting, partnerships or donations.">
+  <meta property="og:image" content="Pictures/Logo.png">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="styles.css?v=2026.08.29.1">
+  <link rel="stylesheet" href="styles-v2.css?v=2026.08.29.1">
 </head>
-<body class="internal-page home-page">
+<body class="internal-page">
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <header class="site-header">
     <div class="container topbar">
       <a class="brand" href="index.html" aria-label="Bows for Battle Home">
@@ -16,66 +24,196 @@
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="index.html">Home</a>
-        <a href="mission.html">Mission</a>
+        <a href="about.html">About</a>
         <a href="programs.html">Programs</a>
-        <a href="support.html">Support</a>
+        <a href="events.html">Events</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="give.html">Give</a>
         <a class="active" href="contact.html">Contact</a>
+        <a class="nav-donate" href="donate.html">Donate</a>
       </nav>
     </div>
   </header>
 
-  <main class="internal-main">
+  <div class="example-legend">
+    <div class="container">
+      <p><strong>Draft site</strong> &mdash; highlighted text is example content showing what belongs in that spot. It is not real information and must be replaced before this site goes live. &middot; rev 2026.08.29.1</p>
+    </div>
+  </div>
+  <main class="internal-main" id="main">
     <section class="page-intro">
       <div class="container narrow content">
         <p class="eyebrow">Contact</p>
-        <h1>Get in touch with Bows for Battle.</h1>
-        <p>
-          Reach out for veteran participation, volunteer opportunities, partnerships, or support questions.
-        </p>
+        <h1>Get in touch.</h1>
+        <p>Whether you are a veteran interested in participating, a business wanting to help, or someone with a bow in the garage you no longer shoot &mdash; we would like to hear from you.</p>
       </div>
     </section>
 
-    <section>
-      <div class="container content-grid content">
-        <article class="highlight">
-          <h2>Contact Form</h2>
-          <form aria-label="Contact form">
-            <div class="field">
-              <label for="full-name">Full Name</label>
-              <input id="full-name" name="full-name" type="text" required>
+    <section class="anchor-section">
+      <div class="container content">
+        <div class="split-2">
+          <article class="highlight">
+            <h2>Send a Message</h2>
+            <p class="form-inert">
+              <strong>Not yet active.</strong> This form is part of the site skeleton and does not
+              submit anywhere. Before launch it needs a real backend so messages reach a monitored
+              inbox &mdash; a form that silently discards a veteran's message is worse than no form at
+              all.
+            </p>
+            <form aria-label="Contact form" onsubmit="return false;">
+              <div class="field">
+                <label for="full-name">Full Name</label>
+                <input id="full-name" name="full-name" type="text" autocomplete="name">
+              </div>
+              <div class="field">
+                <label for="contact-email">Email</label>
+                <input id="contact-email" name="contact-email" type="email" autocomplete="email">
+              </div>
+              <div class="field">
+                <label for="contact-phone">Phone (optional)</label>
+                <input id="contact-phone" name="contact-phone" type="tel" autocomplete="tel">
+              </div>
+              <div class="field">
+                <label for="topic">Topic</label>
+                <select id="topic" name="topic">
+                  <option value="">Select one</option>
+                  <option>Veteran program participation</option>
+                  <option>Volunteering</option>
+                  <option>Donating equipment or gear</option>
+                  <option>Offering land or range access</option>
+                  <option>Business sponsorship or partnership</option>
+                  <option>Donation or receipt question</option>
+                  <option>Media inquiry</option>
+                  <option>General inquiry</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" rows="6"></textarea>
+              </div>
+              <button type="submit">Send Message</button>
+            </form>
+          </article>
+
+          <aside class="highlight">
+            <h2>Reach Us Directly</h2>
+            <dl class="def-list">
+              <dt>Email</dt>
+              <dd><a href="mailto:info@bowsforbattle.org" class="example">info@bowsforbattle.org</a></dd>
+              <dt>Phone</dt>
+              <dd><span class="example" data-org="phone">(608) 555-0142</span></dd>
+              <dt>Mailing address</dt>
+              <dd><span class="example" data-org="address">1234 Example Road, Barneveld, WI 53507</span></dd>
+              <dt>Response time</dt>
+              <dd class="example">We are entirely volunteer-run, so please allow up to a week for a reply.</dd>
+            </dl>
+
+            <h2 style="margin-top:1.4rem">Faster Routes</h2>
+            <ul class="list">
+              <li><a href="eligibility.html">Veteran interest form</a></li>
+              <li><a href="equip.html">Offer equipment</a></li>
+              <li><a href="host.html">Offer land or range access</a></li>
+              <li><a href="volunteer.html">Volunteer</a></li>
+              <li><a href="sponsorship.html">Sponsorship inquiry</a></li>
+            </ul>
+
+            <div class="status-note" style="margin-top:1.4rem">
+              <strong>If you are in crisis, please do not wait for us to reply.</strong>
+              Dial <a href="tel:988">988 then Press 1</a> to reach the Veterans Crisis Line. It is
+              free, confidential, staffed 24/7, and you do not need to be enrolled in VA benefits or
+              health care.
             </div>
-            <div class="field">
-              <label for="contact-email">Email</label>
-              <input id="contact-email" name="contact-email" type="email" required>
-            </div>
-            <div class="field">
-              <label for="topic">Topic</label>
-              <select id="topic" name="topic" required>
-                <option value="">Select one</option>
-                <option>Veteran Program Participation</option>
-                <option>Volunteer Interest</option>
-                <option>Partnership</option>
-                <option>Support Question</option>
-                <option>General Inquiry</option>
-              </select>
-            </div>
-            <div class="field">
-              <label for="message">Message</label>
-              <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit">Send Message</button>
-          </form>
-        </article>
-        
+          </aside>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container footer-row">
-      <p>Bows for Battle</p>
-      <p><a href="https://www.bowsforbattle.org/" target="_blank" rel="noopener noreferrer">www.bowsforbattle.org</a></p>
+    <div class="crisis-band">
+      <div class="container">
+        <p class="crisis-lead">In crisis? <a href="tel:988">Dial 988 then Press 1</a>.</p>
+        <p class="crisis-detail">
+          Text 838255 &middot; Chat at <a href="https://www.veteranscrisisline.net/get-help-now/chat/" target="_blank" rel="noopener noreferrer">VeteransCrisisLine.net</a><br>
+          Free, confidential, 24/7. You do not need to be enrolled in VA benefits or health care.
+        </p>
+      </div>
+    </div>
+
+    <div class="legal-band">
+      <div class="container legal-grid">
+        <div>
+          <p class="legal-name example">Bows for Battle, Inc.</p>
+          <p>
+            <span class="example" data-org="address">1234 Example Road, Barneveld, WI 53507</span><br>
+            <span class="example" data-org="phone">(608) 555-0142</span> &middot;
+            <a href="mailto:info@bowsforbattle.org" class="example">info@bowsforbattle.org</a>
+          </p>
+        </div>
+        <div>
+          <p><span class="example">EIN: 12-3456789</span></p>
+          <p>
+            Bows for Battle is a registered 501(c)(3) nonprofit organization.
+            Contributions are tax-deductible to the extent permitted by law.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="utility-band">
+      <div class="container">
+        <div class="utility-grid">
+          <div>
+            <h2>For Veterans</h2>
+            <ul class="utility-links">
+              <li><a href="what-happens.html">What Happens</a></li>
+              <li><a href="eligibility.html">Eligibility &amp; Apply</a></li>
+              <li><a href="events.html">Events</a></li>
+              <li><a href="safety.html">Safety</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Support Us</h2>
+            <ul class="utility-links">
+              <li><a href="donate.html">Donate</a></li>
+              <li><a href="sponsorship.html">Sponsorship</a></li>
+              <li><a href="equip.html">Donate Gear</a></li>
+              <li><a href="host.html">Become a Host</a></li>
+              <li><a href="volunteer.html">Volunteer</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>The Organization</h2>
+            <ul class="utility-links">
+              <li><a href="mission.html">Mission &amp; Vision</a></li>
+              <li><a href="story.html">Our Story</a></li>
+              <li><a href="board.html">Board &amp; Leadership</a></li>
+              <li><a href="transparency.html">Transparency</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h2>Legal</h2>
+            <ul class="utility-links">
+              <li><a href="legal.html#privacy">Privacy Policy</a></li>
+              <li><a href="legal.html#donor-privacy">Donor Privacy</a></li>
+              <li><a href="legal.html#accessibility">Accessibility</a></li>
+              <li><a href="legal.html#disclosures">Disclosures</a></li>
+            </ul>
+            <h2 style="margin-top:1rem">Follow</h2>
+            <ul class="utility-links">
+              <li><a href="#" class="example">Facebook</a></li>
+              <li><a href="#" class="example">Instagram</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom container" style="width:100%">
+          <p>&copy; 2026 <span class="example">Bows for Battle, Inc.</span> All rights reserved.</p>
+        </div>
+      </div>
     </div>
   </footer>
+  <script src="data.js?v=2026.08.29.1"></script>
+  <script src="events.js?v=2026.08.29.1"></script>
 </body>
 </html>

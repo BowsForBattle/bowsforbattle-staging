@@ -1,0 +1,689 @@
+/* ==========================================================================
+   Bows for Battle - v2 additions
+   Loaded after styles.css. See BowsForBattle_Website_Plan_v2.md
+
+   Kept in its own file so the v2 structural work stays reviewable on its own.
+   Merge into styles.css later if you prefer a single stylesheet.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. EXAMPLE CONTENT MARKERS
+
+   Highlighted text is placeholder content that demonstrates the KIND of
+   information belonging in that spot. It is not real. Replace before launch.
+
+   Find everything still outstanding:
+     grep -rn "example" --include=*.html .
+   -------------------------------------------------------------------------- */
+
+.example,
+.example-block {
+  --eg-line: #b3790a;
+  --eg-fill: rgba(240, 176, 30, 0.26);
+}
+
+.example {
+  background: var(--eg-fill);
+  border-bottom: 2px dashed var(--eg-line);
+  padding: 0 0.15em;
+  border-radius: 2px;
+}
+
+.example-block {
+  background: var(--eg-fill);
+  border: 2px dashed var(--eg-line);
+  border-radius: 8px;
+  padding: 1rem 1rem 0.85rem;
+  margin: 0 0 1rem;
+}
+
+.example-block > :last-child {
+  margin-bottom: 0;
+}
+
+/* On dark sections the amber has to carry more of its own light. */
+.home-main .example,
+.home-main .example-block,
+.site-footer .example,
+.legal-band .example,
+.utility-band .example {
+  --eg-fill: rgba(240, 176, 30, 0.28);
+  --eg-line: #f0b01e;
+  color: #fff6e2;
+}
+
+.example-legend {
+  background: rgba(240, 176, 30, 0.26);
+  border-bottom: 1px solid #b3790a;
+  color: #3a2a05;
+  font-size: 0.9rem;
+  padding: 0.6rem 0;
+}
+
+.example-legend p {
+  margin: 0;
+}
+
+.example-legend strong {
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.82rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. ACCESSIBILITY
+   -------------------------------------------------------------------------- */
+
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 999;
+  background: var(--accent);
+  color: var(--white);
+  padding: 0.7rem 1rem;
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent-bright);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Contrast fix: the primary nav sits over a photograph in the home header,
+   so its scrim must be dark enough to carry white text unaided.
+   Measured 1.74:1 before this change; 4.5:1 is required. */
+.site-nav {
+  background: rgba(8, 12, 8, 0.78);
+  border-color: rgba(255, 255, 255, 0.26);
+}
+
+/* --------------------------------------------------------------------------
+   3. HEADER DONATE BUTTON
+   -------------------------------------------------------------------------- */
+
+.nav-donate {
+  background: var(--accent);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 0.3rem 0.9rem;
+  font-weight: 800;
+  border-bottom: 2px solid transparent !important;
+}
+
+.nav-donate:hover,
+.nav-donate:focus-visible {
+  background: var(--accent-bright);
+  color: var(--command);
+}
+
+/* --------------------------------------------------------------------------
+   4. IN-PAGE SECTION NAV
+   The condensed pages are long, so each one carries its own jump list.
+   -------------------------------------------------------------------------- */
+
+.subnav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--command);
+  border-bottom: 2px solid var(--accent);
+  box-shadow: 0 4px 14px rgba(10, 14, 10, 0.3);
+}
+
+.subnav .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem 1.1rem;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+}
+
+.subnav a {
+  color: #e8e4d6;
+  font-size: 0.84rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 0.2rem 0;
+  border-bottom: 2px solid transparent;
+}
+
+.subnav a:hover,
+.subnav a:focus-visible {
+  color: var(--accent-bright);
+  border-bottom-color: var(--accent-bright);
+  outline: none;
+}
+
+/* Keep anchor targets clear of the sticky subnav. */
+[id] {
+  scroll-margin-top: 4.5rem;
+}
+
+.anchor-section {
+  padding: 2.4rem 0 0.8rem;
+}
+
+.anchor-section > .container > h2 {
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+  color: var(--command);
+}
+
+/* --------------------------------------------------------------------------
+   5. THREE-BAND FOOTER
+   Band 1 crisis line, band 2 legal identity, band 3 utility links.
+   -------------------------------------------------------------------------- */
+
+.crisis-band {
+  background: #4a1113;
+  border-top: 3px solid #d6453f;
+  color: #ffeceb;
+  padding: 1rem 0;
+  text-align: center;
+}
+
+.crisis-lead {
+  margin: 0 0 0.3rem;
+  font-size: 1.18rem;
+  font-weight: 800;
+}
+
+.crisis-lead a {
+  color: #ffffff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.crisis-detail {
+  margin: 0;
+  font-size: 0.9rem;
+  color: #f6d6d4;
+}
+
+.crisis-detail a {
+  color: #ffe3e1;
+  text-decoration: underline;
+}
+
+.legal-band {
+  background: #101a14;
+  color: #dcd8ca;
+  padding: 1.4rem 0;
+  font-size: 0.9rem;
+}
+
+.legal-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.legal-band p {
+  margin: 0 0 0.4rem;
+}
+
+.legal-name {
+  font-weight: 800;
+  color: var(--white);
+  font-size: 1rem;
+}
+
+.utility-band {
+  background: #0b120d;
+  color: #c2beaf;
+  padding: 1.2rem 0;
+  font-size: 0.88rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.utility-grid {
+  display: grid;
+  gap: 1.2rem;
+  grid-template-columns: 1fr;
+}
+
+.utility-grid h2 {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #f0ece0;
+  margin: 0 0 0.5rem;
+}
+
+.utility-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.utility-links li {
+  margin-bottom: 0.28rem;
+}
+
+.utility-band a,
+.legal-band a {
+  color: var(--accent-soft);
+}
+
+.utility-band a:hover,
+.utility-band a:focus-visible,
+.legal-band a:hover,
+.legal-band a:focus-visible {
+  color: var(--accent-bright);
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  margin-top: 1.1rem;
+  padding-top: 0.8rem;
+  font-size: 0.82rem;
+  color: #9c9888;
+}
+
+@media (min-width: 720px) {
+  .legal-grid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+
+  .utility-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   6. CONTENT PATTERNS FOR THE CONDENSED PAGES
+   -------------------------------------------------------------------------- */
+
+/* Label/value pairs - eligibility criteria, budget lines, FAQs */
+.def-list {
+  margin: 0;
+}
+
+.def-list dt {
+  font-weight: 800;
+  color: var(--command);
+  margin-top: 0.9rem;
+}
+
+.def-list dd {
+  margin: 0.2rem 0 0;
+  color: #2d333b;
+}
+
+/* The four Get Involved lanes */
+.lane {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-left: 6px solid var(--accent);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.lane h3 {
+  margin: 0 0 0.15rem;
+  color: var(--command);
+  font-size: 1.3rem;
+}
+
+.lane-kicker {
+  margin: 0 0 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--accent-dark);
+}
+
+/* Giving amounts described by what they buy, not by tier name */
+.impact-tiers {
+  display: grid;
+  gap: 0.8rem;
+  grid-template-columns: 1fr;
+  margin-bottom: 1rem;
+}
+
+.impact-tier {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-top: 5px solid var(--accent);
+  border-radius: 10px;
+  padding: 0.9rem;
+}
+
+.impact-tier .amount {
+  display: block;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--command);
+  line-height: 1.1;
+}
+
+.impact-tier .buys {
+  display: block;
+  margin-top: 0.35rem;
+  color: #2d333b;
+}
+
+@media (min-width: 720px) {
+  .impact-tiers {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Goal cards - what replaces the fabricated impact statistics */
+.goal-grid {
+  display: grid;
+  gap: 0.9rem;
+  grid-template-columns: 1fr;
+}
+
+.goal {
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-left: 5px solid var(--accent-bright);
+  border-radius: 10px;
+  padding: 0.9rem;
+}
+
+.goal-target {
+  display: block;
+  font-size: 1.45rem;
+  font-weight: 800;
+  line-height: 1.15;
+}
+
+.goal-by {
+  display: block;
+  margin-top: 0.3rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  opacity: 0.85;
+}
+
+@media (min-width: 720px) {
+  .goal-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Notice shown on the forms while they are still inert */
+.form-inert {
+  background: #23303a;
+  color: #dde7ef;
+  border-left: 5px solid #7fa9ca;
+  border-radius: 8px;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.88rem;
+  margin-bottom: 1rem;
+}
+
+.status-note {
+  background: rgba(58, 75, 52, 0.1);
+  border: 1px dashed var(--olive);
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  color: var(--muted);
+}
+
+.doc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.doc-list li {
+  border-bottom: 1px solid var(--border);
+  padding: 0.55rem 0;
+}
+
+.doc-list li:last-child {
+  border-bottom: 0;
+}
+
+.person-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+.person {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  border-top: 4px solid var(--olive);
+  padding: 1rem;
+}
+
+.person h3 {
+  margin: 0 0 0.1rem;
+  color: var(--command);
+}
+
+.person .role {
+  margin: 0 0 0.6rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-weight: 700;
+  color: var(--accent-dark);
+}
+
+.person .portrait {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 0.7rem;
+  background: var(--khaki);
+}
+
+@media (min-width: 720px) {
+  .person-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Two-column prose layout used on several condensed sections */
+.split-2 {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 860px) {
+  .split-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   7. DARK-SURFACE ALIGNMENT FOR THE NEW COMPONENTS
+
+   .internal-main is a dark flag background whose established treatment is
+   dark translucent panels carrying light text (#f3f0e7). styles.css already
+   lightens h1-h3, p, li, th, td and label there, but not h4, dt, dd, or any
+   of the v2 components. Everything below brings the new pieces onto that
+   same surface. Without it, dark text lands on the dark panel at ~1.2:1.
+   -------------------------------------------------------------------------- */
+
+/* Section headings and definition lists sitting on the dark surface. */
+.internal-main .anchor-section > .container > h2,
+.internal-main h4,
+.internal-main .def-list dt,
+.internal-main .def-list dd {
+  color: #f3f0e7;
+}
+
+/* New panel components adopt the same translucent card treatment as
+   .highlight and .card so they read as one system. */
+.internal-main .lane,
+.internal-main .impact-tier,
+.internal-main .person,
+.internal-main .example-block,
+.internal-main .status-note {
+  background: rgba(13, 18, 13, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.22);
+  backdrop-filter: blur(4px);
+}
+
+.internal-main .lane {
+  border-left: 6px solid var(--accent-bright);
+}
+
+.internal-main .impact-tier {
+  border-top: 5px solid var(--accent-bright);
+}
+
+.internal-main .person {
+  border-top: 4px solid var(--accent-bright);
+}
+
+.internal-main .status-note {
+  border-left: 5px solid #f0b01e;
+}
+
+.internal-main .lane h3,
+.internal-main .person h3,
+.internal-main .impact-tier .amount,
+.internal-main .status-note,
+.internal-main .status-note strong,
+.internal-main .impact-tier .buys,
+.internal-main .example-block,
+.internal-main .example-block p,
+.internal-main .example-block dt,
+.internal-main .example-block dd {
+  color: #f3f0e7;
+}
+
+.internal-main .lane-kicker,
+.internal-main .person .role {
+  color: var(--accent-bright);
+}
+
+/* Example markers need the brighter amber on every dark surface. */
+.internal-main .example,
+.internal-main .example-block {
+  --eg-fill: rgba(240, 176, 30, 0.28);
+  --eg-line: #f0b01e;
+  color: #fff6e2;
+}
+
+/* The legend strip is its own light band and keeps dark text. */
+.example-legend,
+.example-legend p,
+.example-legend strong {
+  color: #3a2a05;
+}
+
+/* Elements carrying their own background keep their own text colour. */
+.internal-main .form-inert,
+.internal-main .form-inert strong {
+  color: #dde7ef;
+}
+
+.internal-main .link-button {
+  color: var(--white);
+}
+
+.internal-main .link-button.alt {
+  color: var(--accent-bright);
+  border-color: var(--accent-bright);
+}
+
+/* Where an accent-coloured label is also an example marker, the amber fill
+   wins and needs the light cream text rather than the accent green. */
+.internal-main .person .role.example,
+.internal-main .lane-kicker.example {
+  color: #fff6e2;
+}
+
+/* --------------------------------------------------------------------------
+   8. THE TWO DOORS
+
+   There are exactly two reasons anyone visits: they served, or they want to
+   help. The home page gives each one an equal, obvious door instead of
+   making people work out which nav item applies to them.
+   -------------------------------------------------------------------------- */
+
+.door-grid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: 1fr;
+}
+
+.door {
+  background: rgba(13, 18, 13, 0.8);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 5px solid var(--accent-bright);
+  border-radius: 14px;
+  padding: 1.4rem 1.5rem;
+  box-shadow: 0 18px 34px rgba(0, 0, 0, 0.24);
+}
+
+.door h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.7rem;
+  line-height: 1.15;
+}
+
+.door p {
+  margin-bottom: 1rem;
+}
+
+.door-kicker {
+  margin: 0 0 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--accent-bright);
+}
+
+@media (min-width: 780px) {
+  .door-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Hub pages route rather than explain, so their card grids sit closer in. */
+.internal-main .anchor-section .cards .card p {
+  min-height: 3em;
+}
+
+/* An example marker sitting inside a solid button needs a darker fill so the
+   button label keeps its contrast against it. */
+.link-button .example,
+button .example,
+.nav-donate .example {
+  background: rgba(120, 78, 0, 0.6);
+  border-bottom-color: #f0b01e;
+  color: #ffffff;
+}
+
+/* Hub card grids size themselves to the number of children, so a section
+   with four pages does not leave the fourth card stranded on its own row. */
+.cards.auto-fit {
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
