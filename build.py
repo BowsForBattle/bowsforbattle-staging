@@ -454,7 +454,7 @@ page('index.html', 'Home',
           </p>
           <div class="home-sponsor-grid">
             <article class="home-sponsor-card">
-              <a class="home-sponsor-link" href="https://www.facebook.com/sherwoodforestbowmen" target="_blank" rel="noopener" aria-label="Visit Sherwood Forest Bowmen on Facebook">
+              <a class="home-sponsor-link" href="https://www.sherwoodforestbowmen.com" target="_blank" rel="noopener" aria-label="Visit Sherwood Forest Bowmen website">
                 <img class="home-sponsor-logo" src="Pictures/Sherwood%20bowmens%20logo.jpg" alt="Sherwood Forest Bowmen logo">
               </a>
               <h3>Sherwood Forest Bowmen</h3>
@@ -1608,7 +1608,7 @@ page('sponsors.html', 'Sponsors &amp; Partners',
           <article class="person">
             <h3>Sherwood Forest Bowmen</h3>
             <p class="role">Community Partner</p>
-            <a href="https://www.facebook.com/sherwoodforestbowmen" target="_blank" rel="noopener" aria-label="Visit Sherwood Forest Bowmen on Facebook" style="display:block;margin-bottom:0.7rem">
+            <a href="https://www.sherwoodforestbowmen.com" target="_blank" rel="noopener" aria-label="Visit Sherwood Forest Bowmen website" style="display:block;margin-bottom:0.7rem">
               <img class="portrait" src="Pictures/Sherwood%20bowmens%20logo.jpg" alt="Sherwood Forest Bowmen logo">
             </a>
             <p>
