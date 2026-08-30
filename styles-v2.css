@@ -67,12 +67,12 @@
 .example-legend strong {
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  font-size: 0.82rem;
+}
 
 /* Safety net: keep legacy draft banners hidden even if a stale page is cached. */
 .example-legend {
   display: none !important;
-}
-  font-size: 0.82rem;
 }
 
 /* --------------------------------------------------------------------------

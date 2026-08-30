@@ -26,7 +26,7 @@ import os
 OUT = os.path.dirname(os.path.abspath(__file__))
 
 # Bump on every deploy so cached HTML, CSS and JS refresh together.
-REV = "2026.08.29.2"
+REV = "2026.08.29.3"
 
 SITE = "Bows for Battle"
 
