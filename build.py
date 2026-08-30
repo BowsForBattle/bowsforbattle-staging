@@ -56,7 +56,6 @@ SECTIONS = {
     ],
     "programs.html": [
         ("eligibility.html",  "Eligibility &amp; Apply"),
-        ("safety.html",       "Safety"),
     ],
     "get-involved.html": [
         ("equip.html",     "Donate Gear"),
@@ -194,7 +193,6 @@ FOOTER = """  <footer class="site-footer">
             <ul class="utility-links">
               <li><a href="eligibility.html">Eligibility &amp; Apply</a></li>
               <li><a href="events.html">Events</a></li>
-              <li><a href="safety.html">Safety</a></li>
             </ul>
           </div>
           <div>
@@ -259,7 +257,6 @@ def hub_cards(page):
         'story.html':        'Why this organization exists, and exactly where it stands today.',
         'board.html':        'The people accountable for how this organization spends money.',
         'eligibility.html':  'Who we serve, what we are not, and how to sign up.',
-        'safety.html':       'Range standards, supervision, and insurance.',
         'equip.html':        'Bows, arrows, targets and range time.',
         'host.html':         'Land, range access, hunting property, or a guided day.',
         'volunteer.html':    'Help at events, mentor, or simply show up.',
@@ -357,7 +354,6 @@ page('index.html', 'Home',
             </p>
             <div class="home-actions">
               <a class="link-button" href="eligibility.html">See Eligibility &amp; Apply</a>
-              <a class="link-button alt" href="eligibility.html">Am I Eligible?</a>
             </div>
           </article>
           <article class="door">
@@ -925,7 +921,7 @@ page('eligibility.html', 'Eligibility &amp; Apply',
               <dt>Geography</dt>
               <dd class="example">Southern Wisconsin. We are a single-location organization and cannot yet support travel.</dd>
               <dt>Experience</dt>
-              <dd class="example">None required. Most participants have never shot a bow.</dd>
+              <dd class="example">None required. No prior archery experience is needed.</dd>
               <dt>Physical requirements</dt>
               <dd class="example">None. Adaptive equipment and seated shooting positions are available. Tell us what you need.</dd>
               <dt>Cost</dt>
@@ -1167,7 +1163,6 @@ page('events.html', 'Events',
           <aside class="highlight">
             <h2>Not sure you qualify?</h2>
             <p>Our eligibility criteria are short, specific, and say plainly what we are not.</p>
-            <p style="margin-bottom:0"><a class="link-button alt" href="eligibility.html">Check Eligibility</a></p>
           </aside>
         </div>
       </div>
@@ -1360,8 +1355,7 @@ page('host.html', 'Become a Host',
         </div>
 
         <p style="margin-top:1rem">
-          Want to know what we do on site? See our
-          <a href="safety.html">range safety standards</a>.
+          Want to know what we do on site? Ask us for our range safety standards.
         </p>
       </div>
     </section>
@@ -1775,7 +1769,6 @@ page('sponsorship.html', 'Business Sponsorship',
 # ===========================================================================
 # CONTACT
 # ===========================================================================
-
 page('contact.html', 'Contact',
      'Contact Bows for Battle about veteran participation, volunteering, hosting, partnerships or donations.',
      phead('Contact', 'Get in touch.',
