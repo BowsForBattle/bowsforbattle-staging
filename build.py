@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 """Bows for Battle - static site generator.
 
 Run:  python build.py
@@ -7,9 +7,9 @@ Writes plain .html files next to this script. No dependencies, no Node.
 The output is ordinary static HTML - double-click index.html and it works.
 
 WHY THIS EXISTS
-    The header, footer, navigation and the draft banner live here exactly
-    once. Editing them by hand across twenty files guarantees the pages
-    drift apart, which is what happened before this file existed.
+  The header, footer, navigation and the draft banner live here exactly
+  once. Editing them by hand across twenty files guarantees the pages
+  drift apart, which is what happened before this file existed.
 
 WHERE THINGS LIVE
     Events are NOT in this file. They live in data.js and render through
@@ -52,11 +52,9 @@ SECTIONS = {
     "about.html": [
         ("mission.html",      "Mission &amp; Vision"),
         ("story.html",        "Our Story"),
-        ("board.html",        "Board &amp; Leadership"),
-        ("transparency.html", "Transparency"),
+    ("board.html",        "Board &amp; Leadership"),
     ],
     "programs.html": [
-        ("what-happens.html", "What Happens"),
         ("eligibility.html",  "Eligibility &amp; Apply"),
         ("safety.html",       "Safety"),
     ],
@@ -78,15 +76,7 @@ for _hub, _kids in SECTIONS.items():
         PARENT[_href] = _hub
 
 
-DRAFT_BANNER = (
-    '  <div class="example-legend">\n'
-    '    <div class="container">\n'
-    '      <p><strong>Draft site</strong> &mdash; highlighted text is example content showing what '
-    'belongs in that spot. It is not real information and must be replaced before this site goes '
-    'live. &middot; rev ' + REV + '</p>\n'
-    '    </div>\n'
-    '  </div>\n'
-)
+DRAFT_BANNER = ''
 
 
 def head(title, desc, page, extra_css=()):
@@ -179,15 +169,14 @@ FOOTER = """  <footer class="site-footer">
     <div class="legal-band">
       <div class="container legal-grid">
         <div>
-          <p class="legal-name example">Bows for Battle, Inc.</p>
+          <p class="legal-name">Bows for Battle, Inc.</p>
           <p>
-            <span class="example" data-org="address">1234 Example Road, Barneveld, WI 53507</span><br>
-            <span class="example" data-org="phone">(608) 555-0142</span> &middot;
-            <a href="mailto:info@bowsforbattle.org" class="example">info@bowsforbattle.org</a>
+            <span data-org="address">N64W14960 Mill Rd, Menomonee Falls, WI 53051</span><br>
+            <a href="mailto:jessehall@bowsforbattle.org">jessehall@bowsforbattle.org</a>
           </p>
         </div>
         <div>
-          <p><span class="example">EIN: 12-3456789</span></p>
+          <p><span>EIN: 42-2771314</span></p>
           <p>
             Bows for Battle is a registered 501(c)(3) nonprofit organization.
             Contributions are tax-deductible to the extent permitted by law.
@@ -202,7 +191,6 @@ FOOTER = """  <footer class="site-footer">
           <div>
             <h2>For Veterans</h2>
             <ul class="utility-links">
-              <li><a href="what-happens.html">What Happens</a></li>
               <li><a href="eligibility.html">Eligibility &amp; Apply</a></li>
               <li><a href="events.html">Events</a></li>
               <li><a href="safety.html">Safety</a></li>
@@ -224,7 +212,6 @@ FOOTER = """  <footer class="site-footer">
               <li><a href="mission.html">Mission &amp; Vision</a></li>
               <li><a href="story.html">Our Story</a></li>
               <li><a href="board.html">Board &amp; Leadership</a></li>
-              <li><a href="transparency.html">Transparency</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
@@ -238,13 +225,12 @@ FOOTER = """  <footer class="site-footer">
             </ul>
             <h2 style="margin-top:1rem">Follow</h2>
             <ul class="utility-links">
-              <li><a href="#" class="example">Facebook</a></li>
-              <li><a href="#" class="example">Instagram</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61590572042307" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom container" style="width:100%">
-          <p>&copy; 2026 <span class="example">Bows for Battle, Inc.</span> All rights reserved.</p>
+          <p>&copy; 2026 <span>Bows for Battle, Inc.</span> All rights reserved.</p>
         </div>
       </div>
     </div>
@@ -271,8 +257,6 @@ def hub_cards(page):
         'mission.html':      'What we are here to do, and the principles the program is built on.',
         'story.html':        'Why this organization exists, and exactly where it stands today.',
         'board.html':        'The people accountable for how this organization spends money.',
-        'transparency.html': 'Our budget, our goals, our governing documents. All of it.',
-        'what-happens.html': 'A session hour by hour, what to bring, and what it costs.',
         'eligibility.html':  'Who we serve, what we are not, and how to sign up.',
         'safety.html':       'Range standards, supervision, and insurance.',
         'equip.html':        'Bows, arrows, targets and range time.',
@@ -303,23 +287,24 @@ def page(name, title, desc, body, extra_css=(), scripts=()):
 
 
 def write_all():
-    for name, title, desc, body, extra_css, scripts in PAGES:
-        main_cls = 'home-main' if name == 'index.html' else 'internal-main'
-        js = ''.join('  <script src="%s?v=%s"></script>\n' % (s, REV) for s in scripts)
-        html = (
-            head(title, desc, name, extra_css)
-            + header(name)
-            + subnav(name)
-            + '  <main class="%s" id="main">\n' % main_cls
-            + body
-            + '  </main>\n\n'
-            + FOOTER
-            + js
-            + '</body>\n</html>\n'
-        )
-        with open(os.path.join(OUT, name), 'w', encoding='utf-8', newline='\n') as f:
-            f.write(html)
-    print('Wrote %d pages (rev %s)' % (len(PAGES), REV))
+  for name, title, desc, body, extra_css, scripts in PAGES:
+    main_cls = 'home-main' if name == 'index.html' else 'internal-main'
+    js_files = ['forms.js'] + list(scripts)
+    js = ''.join('  <script src="%s?v=%s"></script>\n' % (s, REV) for s in js_files)
+    html = (
+      head(title, desc, name, extra_css)
+      + header(name)
+      + subnav(name)
+      + '  <main class="%s" id="main">\n' % main_cls
+      + body
+      + '  </main>\n\n'
+      + FOOTER
+      + js
+      + '</body>\n</html>\n'
+    )
+    with open(os.path.join(OUT, name), 'w', encoding='utf-8', newline='\n') as f:
+      f.write(html)
+  print('Wrote %d pages (rev %s)' % (len(PAGES), REV))
 
 
 # ===========================================================================
@@ -369,7 +354,7 @@ page('index.html', 'Home',
               you to talk about your service.
             </p>
             <div class="home-actions">
-              <a class="link-button" href="what-happens.html">See What Happens</a>
+              <a class="link-button" href="eligibility.html">See Eligibility &amp; Apply</a>
               <a class="link-button alt" href="eligibility.html">Am I Eligible?</a>
             </div>
           </article>
@@ -395,10 +380,10 @@ page('index.html', 'Home',
           <p class="section-head">Where We Are Right Now</p>
           <h2>We are just getting started.</h2>
           <p>
-            Bows for Battle was founded in <span class="example">2026</span> and received 501(c)(3)
-            status in <span class="example">June 2026</span>. We are building our first programs now.
+            Bows for Battle was founded on <span>May 3, 2026</span> and received 501(c)(3)
+            status in <span>2026</span>. We are building our first programs now.
             That means we do not yet have years of numbers to point to &mdash; what we have is a clear
-            plan, a real board, and open books.
+            plan and a real board.
           </p>
           <p>
             If you support us this year, you are one of the people who makes the first season
@@ -409,18 +394,15 @@ page('index.html', 'Home',
           </div>
         </article>
         <aside class="home-panel">
-          <p class="section-head">Our First-Year Goals</p>
-          <div class="goal-grid" style="grid-template-columns: 1fr;">
-            <div class="goal">
-              <span class="goal-target example">Run 6 range days for 60 veterans</span>
-              <span class="goal-by example">By December 2027</span>
-            </div>
-            <div class="goal">
-              <span class="goal-target example">Equip 25 veterans with a full starter setup</span>
-              <span class="goal-by example">By December 2027</span>
-            </div>
+          <p class="section-head">Community Partners</p>
+          <h2>Local support is already showing up.</h2>
+          <p>
+            Sherwood Forest Bowmen and BK3 Archery have been incredible early partners for
+            Bows for Battle. Their support is helping us launch strong and serve veterans well.
+          </p>
+          <div class="home-actions">
+            <a class="link-button alt" href="sponsorship.html">Business Sponsorship</a>
           </div>
-          <p><a href="transparency.html">All goals, our budget and our books &rarr;</a></p>
         </aside>
       </div>
     </section>
@@ -575,22 +557,17 @@ page('story.html', 'Our Story',
             <h2>Where We Are Right Now</h2>
             <dl class="def-list">
               <dt>Founded</dt>
-              <dd class="example">March 2026</dd>
+              <dd>May 3, 2026</dd>
               <dt>501(c)(3) determination received</dt>
-              <dd class="example">June 2026</dd>
+              <dd>2026</dd>
               <dt>Programs delivered to date</dt>
-              <dd class="example">None yet &mdash; our first range day is being scheduled</dd>
+              <dd>Events are announced on our Facebook page.</dd>
               <dt>Veterans served to date</dt>
-              <dd class="example">None yet</dd>
-              <dt>Paid staff</dt>
-              <dd class="example">None &mdash; the organization is entirely volunteer-run</dd>
+              <dd>To be published as programs begin.</dd>
             </dl>
             <p style="margin-top:1rem">
               We would rather tell you this plainly than imply a history we do not have. When these
               numbers change, they will change here first.
-            </p>
-            <p style="margin-bottom:0">
-              <a class="link-button alt" href="transparency.html">See Our Goals and Budget</a>
             </p>
           </aside>
         </div>
@@ -608,41 +585,24 @@ page('board.html', 'Board &amp; Leadership',
         <div class="person-grid">
           <article class="person">
             <img class="portrait" src="Pictures/Logo.png" alt="">
-            <h2 class="example">Jane Doe</h2>
-            <p class="role example">Board Chair &amp; Founder</p>
-            <p class="example">
-              U.S. Army, 2009&ndash;2017, infantry squad leader. Works as a project manager at a
-              Madison construction firm. USA Archery Level 2 Instructor. Founded Bows for Battle in
-              2026.
+            <h2>Jesse Hall</h2>
+            <p class="role">President</p>
+            <p>
+              Bio details coming soon.
             </p>
           </article>
           <article class="person">
             <img class="portrait" src="Pictures/Logo.png" alt="">
-            <h2 class="example">John Smith</h2>
-            <p class="role example">Treasurer</p>
-            <p class="example">
-              U.S. Marine Corps, 2004&ndash;2012. CPA with fifteen years in nonprofit accounting.
-              Handles our books, filings, and financial reporting.
-            </p>
-          </article>
-          <article class="person">
-            <img class="portrait" src="Pictures/Logo.png" alt="">
-            <h2 class="example">Alex Rivera</h2>
-            <p class="role example">Secretary</p>
-            <p class="example">
-              Licensed clinical social worker specializing in veteran mental health. Advises on
-              program design and participant safety. Not a veteran.
+            <h2>Dustin Langsdorf</h2>
+            <p class="role">Vice President</p>
+            <p>
+              Bio details coming soon.
             </p>
           </article>
         </div>
 
         <p class="status-note" style="margin-top:1.2rem">
-          <strong>Replace with the real board.</strong> Each entry needs a real name, role, photo, and
-          a short bio that says what they actually do and why they are on this board. Note veteran
-          status where it applies, and name any relevant certifications (USA Archery, NFAA instructor
-          levels, clinical licenses). A named board of real, verifiable people is the single clearest
-          signal that an organization is legitimate &mdash; and the comparable archery nonprofits do
-          not have one.
+          Additional board bios and photos will be published as they are finalized.
         </p>
       </div>
     </section>
@@ -650,50 +610,16 @@ page('board.html', 'Board &amp; Leadership',
 
 
 page('transparency.html', 'Transparency',
-     'Bows for Battle first-year budget, goals, governing documents and how to verify our status independently.',
+     'Bows for Battle budget, governing documents and how to verify our status independently.',
      phead('About', 'Transparency',
            'We are asking people to fund an organization with no track record. The least we can do is '
            'show our work.')
      + """    <section class="anchor-section" id="goals">
       <div class="container content">
-        <h2>First-Year Goals</h2>
+        <h2>Program Goals</h2>
         <p>
-          We have no impact numbers because we have not run programs yet. Rather than fill this space
-          with vague language, here is exactly what we are committing to, by when.
-        </p>
-
-        <div class="cards three-up" style="margin-bottom:1rem">
-          <article class="card">
-            <h3 class="example">6 range days for 60 veterans</h3>
-            <p class="example">Six supervised range days in southern Wisconsin, targeting ten participants each, by December 2027.</p>
-          </article>
-          <article class="card">
-            <h3 class="example">25 veterans fully equipped</h3>
-            <p class="example">A complete starter setup &mdash; bow, arrows, release, and safety gear &mdash; for 25 veterans by December 2027.</p>
-          </article>
-          <article class="card">
-            <h3 class="example">3 partner ranges</h3>
-            <p class="example">Formal agreements with three ranges or landowners providing recurring access by December 2027.</p>
-          </article>
-        </div>
-
-        <h3>How We Will Measure</h3>
-        <p>
-          Committing to metrics before we have results is itself a promise we can be held to. We will
-          track and publish the following on this page:
-        </p>
-        <ul class="list">
-          <li class="example">Number of unique veterans who attend at least one session</li>
-          <li class="example">Number of sessions delivered</li>
-          <li class="example">Return rate &mdash; the share of participants who attend more than once</li>
-          <li class="example">Equipment sets distributed</li>
-          <li class="example">Total program spending as a share of all spending</li>
-        </ul>
-        <p class="status-note">
-          <strong>Board input needed.</strong> Replace the goals and metrics above with real,
-          board-approved commitments. They should be specific, numeric, and dated. Do not soften them
-          into aspirations &mdash; the point of this section is that it can be checked against reality
-          later.
+          This section is intentionally paused for now. Board-approved program goals will be published
+          here once finalized.
         </p>
       </div>
     </section>
@@ -716,7 +642,7 @@ page('transparency.html', 'Transparency',
               </table>
             </div>
             <p style="margin-top:0.8rem;margin-bottom:0" class="example">
-              Bows for Battle has no paid staff. All work is performed by volunteers.
+              Bows for Battle operates through volunteer support.
             </p>
           </article>
           <aside class="highlight">
@@ -832,7 +758,7 @@ page('programs.html', 'Programs',
 """)
 
 
-page('what-happens.html', 'What Happens',
+page('_what-happens.html', 'What Happens',
      'What a Bows for Battle session is actually like, hour by hour, what to bring and what it costs.',
      phead('Programs', 'What Happens at a Session',
            'Most people want to know what they are walking into before they commit. Here is the '
@@ -988,10 +914,9 @@ page('eligibility.html', 'Eligibility &amp; Apply',
         <article class="highlight" style="margin-top:1rem">
           <h3>Veteran Interest Form</h3>
           <p class="form-inert">
-            <strong>Not yet active.</strong> This form is part of the site skeleton and does not submit
-            anywhere. It will be connected to a real inbox before launch.
+            This form securely sends your details to our team.
           </p>
-          <form aria-label="Veteran interest form" onsubmit="return false;">
+          <form aria-label="Veteran interest form" class="email-form" data-form-title="Veteran Interest Form">
             <div class="field">
               <label for="vet-name">Full Name</label>
               <input id="vet-name" name="vet-name" type="text" autocomplete="name">
@@ -1147,10 +1072,9 @@ page('events.html', 'Events',
               more than a couple of messages a month.
             </p>
             <p class="form-inert">
-              <strong>Not yet active.</strong> This form is part of the site skeleton and does not
-              submit anywhere.
+              This form securely sends your details to our team.
             </p>
-            <form aria-label="Event notification signup" onsubmit="return false;">
+            <form aria-label="Event notification signup" class="email-form" data-form-title="Event Notification Signup">
               <div class="field">
                 <label for="ev-notify">Email</label>
                 <input id="ev-notify" name="ev-notify" type="email" autocomplete="email">
@@ -1171,7 +1095,7 @@ page('events.html', 'Events',
               What a session is like hour by hour, what to bring, and what it costs &mdash; all on one
               page.
             </p>
-            <p style="margin-bottom:0"><a class="link-button" href="what-happens.html">What Happens</a></p>
+            <p style="margin-bottom:0"><a class="link-button" href="eligibility.html">Eligibility &amp; Apply</a></p>
           </article>
           <aside class="highlight">
             <h2>Not sure you qualify?</h2>
@@ -1208,11 +1132,10 @@ page('get-involved.html', 'Get Involved',
             <p style="margin-bottom:0"><a class="link-button" href="give.html">Ways to Give</a></p>
           </article>
           <aside class="highlight">
-            <h2>Employer matching</h2>
-            <p class="example" style="margin-bottom:0">
-              Many employers match charitable gifts from their employees, often dollar for dollar.
-              Check with your HR department &mdash; it is the easiest way to double a gift you have
-              already made.
+            <h2>Prefer to help in another way?</h2>
+            <p style="margin-bottom:0">
+              You can donate gear, offer land or range access, or volunteer at events. Every type of
+              support helps us serve more veterans.
             </p>
           </aside>
         </div>
@@ -1253,7 +1176,6 @@ page('equip.html', 'Donate Gear',
               <ul class="list">
                 <li class="example">Damaged limbs or cracked risers</li>
                 <li class="example">Broadheads &mdash; we shoot field points only</li>
-                <li class="example">Crossbows, at this time</li>
               </ul>
               <p class="status-note" style="margin-top:0.8rem;font-size:0.9rem">
                 <strong>Tax note:</strong> we will send a receipt describing what you donated, but IRS
@@ -1265,10 +1187,9 @@ page('equip.html', 'Donate Gear',
 
           <h3 style="margin-top:1.2rem">Offer Equipment</h3>
           <p class="form-inert">
-            <strong>Not yet active.</strong> This form is part of the site skeleton and does not submit
-            anywhere.
+            This form securely sends your details to our team.
           </p>
-          <form aria-label="Equipment donation form" onsubmit="return false;">
+          <form aria-label="Equipment donation form" class="email-form" data-form-title="Equipment Donation Form">
             <div class="field">
               <label for="eq-name">Name</label>
               <input id="eq-name" name="eq-name" type="text" autocomplete="name">
@@ -1309,39 +1230,37 @@ page('host.html', 'Become a Host',
             <div>
               <dl class="def-list">
                 <dt>Private land</dt>
-                <dd class="example">Acreage where we can safely set up a range for a day. We bring targets, equipment, and supervision.</dd>
+                <dd>Acreage where we can safely set up a range for a day. We bring targets, equipment, and supervision.</dd>
                 <dt>Archery range or club</dt>
-                <dd class="example">Recurring lane time or a reserved bay, even a few hours a month.</dd>
+                <dd>Recurring lane time or a reserved bay, even a few hours a month.</dd>
                 <dt>Hunting property</dt>
-                <dd class="example">Access for veterans during season, with or without you guiding.</dd>
+                <dd>Access for veterans during season, with or without you guiding.</dd>
                 <dt>Guiding or outfitting</dt>
-                <dd class="example">Donate a guided day. You bring the expertise, we handle the logistics and the veteran.</dd>
+                <dd>Donate a guided day. You bring the expertise, we handle the logistics and the veteran.</dd>
               </dl>
             </div>
             <div>
               <h3>What we bring</h3>
               <ul class="list">
-                <li class="example">Proof of general liability and participant accident insurance</li>
-                <li class="example">Certified instructors and at least one board member on site</li>
-                <li class="example">Signed waivers from every participant</li>
-                <li class="example">All targets, equipment, and safety gear</li>
-                <li class="example">Site left exactly as we found it</li>
+                <li>Proof of general liability and participant accident insurance</li>
+                <li>Certified instructors and at least one board member on site</li>
+                <li>Signed waivers from every participant</li>
+                <li>All targets, equipment, and safety gear</li>
+                <li>Site left exactly as we found it</li>
               </ul>
               <p class="status-note" style="margin-top:0.8rem;font-size:0.9rem">
                 Landowners in Wisconsin should also be aware of the state's recreational use statute,
                 which generally limits liability for landowners who allow recreational access without
-                charge. <span class="example">Confirm the specific citation and language with counsel
-                before publishing.</span>
+                charge. Confirm the specific citation and language with counsel before publishing.
               </p>
             </div>
           </div>
 
           <h3 style="margin-top:1.2rem">Offer a Location</h3>
           <p class="form-inert">
-            <strong>Not yet active.</strong> This form is part of the site skeleton and does not submit
-            anywhere.
+            This form securely sends your details to our team.
           </p>
-          <form aria-label="Host offer form" onsubmit="return false;">
+          <form aria-label="Host offer form" class="email-form" data-form-title="Host Offer Form">
             <div class="field">
               <label for="host-name">Name</label>
               <input id="host-name" name="host-name" type="text" autocomplete="name">
@@ -1397,36 +1316,30 @@ page('volunteer.html', 'Volunteer',
           <div class="split-2" style="margin-top:1rem">
             <div>
               <ul class="list">
-                <li class="example">Event setup and teardown</li>
-                <li class="example">Sign-in and check-in table</li>
-                <li class="example">Coaching, if you hold an instructor certification</li>
-                <li class="example">Peer mentorship &mdash; for veterans who want to walk alongside someone newer</li>
-                <li class="example">Food, transportation, and logistics</li>
-                <li class="example">Photography, once participants have consented</li>
-                <li class="example">Simply attending. Turnout is what makes a room feel worth walking into.</li>
+                <li>Event setup and teardown</li>
+                <li>Sign-in and check-in table</li>
+                <li>Coaching, if you hold an instructor certification</li>
+                <li>Peer mentorship &mdash; for veterans who want to walk alongside someone newer</li>
+                <li>Food, transportation, and logistics</li>
+                <li>Photography, once participants have consented</li>
+                <li>Simply attending. Turnout is what makes a room feel worth walking into.</li>
               </ul>
             </div>
             <div>
               <h3>Refer a Veteran</h3>
-              <p class="example">
+              <p>
                 If you know a veteran who might benefit from this, you can tell us about them &mdash;
                 but please talk to them first. We will not cold-contact anyone who has not agreed to
                 hear from us.
-              </p>
-              <p class="status-note" style="margin-top:0.8rem;font-size:0.9rem">
-                <strong>Board decision needed:</strong> confirm the referral policy. Requiring the
-                veteran's consent before contact is the respectful default and avoids putting someone
-                on the spot.
               </p>
             </div>
           </div>
 
           <h3 style="margin-top:1.2rem">Volunteer</h3>
           <p class="form-inert">
-            <strong>Not yet active.</strong> This form is part of the site skeleton and does not submit
-            anywhere.
+            This form securely sends your details to our team.
           </p>
-          <form aria-label="Volunteer form" onsubmit="return false;">
+          <form aria-label="Volunteer form" class="email-form" data-form-title="Volunteer Form">
             <div class="field">
               <label for="vol-name">Name</label>
               <input id="vol-name" name="vol-name" type="text" autocomplete="name">
@@ -1471,10 +1384,10 @@ page('give.html', 'Give',
           <article class="highlight">
             <h2>Where your money goes</h2>
             <p>
-              Our first-year budget, our goals, and our governing documents are all published in one
-              place, along with how to verify our tax status independently.
+              Your gifts directly support veteran programming, equipment, and event delivery as we
+              launch and grow.
             </p>
-            <p style="margin-bottom:0"><a class="link-button alt" href="transparency.html">See Our Books</a></p>
+            <p style="margin-bottom:0"><a class="link-button alt" href="contact.html">Questions About Giving</a></p>
           </article>
           <aside class="highlight">
             <h2>Rather give something other than money?</h2>
@@ -1491,50 +1404,73 @@ page('give.html', 'Give',
 
 
 page('donate.html', 'Donate',
-     'Make a one-time donation to Bows for Battle, or join Anchor Point monthly giving.',
+     'Support Bows for Battle through sponsorship levels that fund events, veterans, and equipment packages.',
      phead('Give', 'Donate',
-           'Rather than list tiers, here is what each amount actually pays for. These are real costs, '
-           'not suggested levels.')
+           'Local businesses may sponsor events, veterans, or equipment packages. Your support '
+           'directly helps us change lives and build a stronger veteran community.')
      + """    <section class="anchor-section" id="one-time">
       <div class="container content">
-        <h2>Make a Donation</h2>
+        <h2>Sponsorship Levels</h2>
+        <figure class="highlight" style="padding:0;overflow:hidden">
+          <img src="Pictures/Sponsorship%20packages.png" alt="Bows for Battle sponsorship levels flyer" style="display:block;width:100%;height:auto">
+        </figure>
 
-        <div class="impact-tiers">
-          <div class="impact-tier">
-            <span class="amount example">$35</span>
-            <span class="buys example">A dozen arrows and a finger tab for one veteran</span>
-          </div>
-          <div class="impact-tier">
-            <span class="amount example">$75</span>
-            <span class="buys example">Range time for four veterans at a partner club</span>
-          </div>
-          <div class="impact-tier">
-            <span class="amount example">$150</span>
-            <span class="buys example">A complete starter setup &mdash; bow, arrows, release, armguard</span>
-          </div>
-          <div class="impact-tier">
-            <span class="amount example">$500</span>
-            <span class="buys example">Equipment and range costs for one full range day</span>
-          </div>
+        <div class="cards auto-fit" style="margin-top:1rem">
+          <article class="card">
+            <h3>Fuel Hope</h3>
+            <p style="font-weight:700">$0 - $249.00</p>
+            <p>Every gift-big or small-fuels hope and changes lives.</p>
+            <p style="margin-bottom:0">You'll be recognized on our website Supporter Wall.</p>
+          </article>
+          <article class="card">
+            <h3>Bronze Sponsor</h3>
+            <p style="font-weight:700">$250</p>
+            <ul class="list">
+              <li>Name listed on website and social media</li>
+              <li>Recognition at sponsored events</li>
+              <li>Thank you certificate of appreciation</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Silver Sponsor</h3>
+            <p style="font-weight:700">$500</p>
+            <ul class="list">
+              <li>All Bronze benefits</li>
+              <li>Logo listed on website and social media</li>
+              <li>Recognition at events</li>
+              <li>Thank you certificate of appreciation</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Gold Sponsor</h3>
+            <p style="font-weight:700">$1,000</p>
+            <ul class="list">
+              <li>All Silver benefits</li>
+              <li>Logo on event signage and promotional materials</li>
+              <li>Verbal recognition at events</li>
+              <li>Thank you certificate of appreciation</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Mission Sponsor</h3>
+            <p style="font-weight:700">$2,500+</p>
+            <ul class="list">
+              <li>All Gold benefits</li>
+              <li>Premier logo placement on all materials</li>
+              <li>Featured recognition in press and promotions</li>
+              <li>Opportunity for speaking or presenting at events</li>
+              <li>Thank you certificate of appreciation</li>
+            </ul>
+          </article>
         </div>
-
-        <p class="status-note">
-          <strong>Board input needed:</strong> replace these with the treasurer's real cost figures.
-          The strength of this format is that every number is verifiable &mdash; it describes a
-          mechanism rather than claiming an outcome, which is exactly what a new organization can
-          honestly say.
-        </p>
 
         <article class="highlight" style="margin-top:1.2rem">
           <h3>Donation Form</h3>
           <p class="form-inert">
-            <strong>Not yet active.</strong> This is a placeholder for the real donation embed. Nothing
-            here processes a payment, and no card details should ever be entered into a form we build
-            ourselves. The recommended platform is <span class="example">Zeffy</span> &mdash; 0% fees,
-            and it issues IRS-compliant receipts automatically, which matters given the $250
-            acknowledgment rule and the $75 quid pro quo disclosure rule.
+            This form securely sends your details to our team.
+            No payment is processed on this page.
           </p>
-          <form aria-label="Donation form" onsubmit="return false;">
+          <form aria-label="Donation form" class="email-form" data-form-title="Donation Form">
             <div class="field">
               <label for="don-amount">Amount (USD)</label>
               <input id="don-amount" name="don-amount" type="number" min="1" step="1">
@@ -1554,99 +1490,40 @@ page('donate.html', 'Donate',
             <button type="submit">Donate</button>
           </form>
           <p style="margin-top:0.8rem;font-size:0.88rem;margin-bottom:0">
-            You can also mail a check to <span class="example" data-org="address">1234 Example Road,
-            Barneveld, WI 53507</span>.
+            You can also mail a check to <span data-org="address">N64W14960 Mill Rd,
+            Menomonee Falls, WI 53051</span>.
           </p>
         </article>
       </div>
     </section>
 
-    <section class="anchor-section muted-section" id="monthly">
+    <section class="anchor-section muted-section" id="other">
       <div class="container content">
-        <h2>Monthly Giving &mdash; <span class="example">Anchor Point</span></h2>
+        <h2>Where Your Support Goes</h2>
         <div class="split-2">
           <article class="highlight">
+            <h3>100% Volunteer-Run</h3>
             <p>
-              An anchor point is the fixed spot where your string hand meets your face at full draw. It
-              is the reference that makes every shot repeatable. Without it, nothing else in the shot
-              holds together.
+              100% of your donation goes directly to support veterans and our programs.
             </p>
-            <p>
-              <span class="example">Anchor Point</span> is our monthly giving program, and it does the
-              same thing for the organization. Recurring gifts let us commit to a range day three
-              months out instead of waiting to see what comes in. For a volunteer-run nonprofit with no
-              reserves, that is the difference between planning and hoping.
-            </p>
-            <p>
-              Membership starts at <span class="example">$15 per month</span>. You can change or cancel
-              it at any time.
-            </p>
-            <p class="status-note" style="margin-top:1rem;font-size:0.9rem;margin-bottom:0">
-              <strong>Board approval needed on the name.</strong> Alternates if preferred: <em>The
-              Quiver</em>, <em>Full Draw Club</em>, <em>Point of Aim</em>. Every established
-              organization in this space brands its monthly program; unnamed recurring giving reads as
-              an afterthought.
+            <p style="margin-bottom:0">
+              We are a 100% volunteer-run organization. Every dollar makes a difference.
             </p>
           </article>
           <aside class="highlight">
-            <h3>What Members Get</h3>
+            <h3>Your Support Helps Fund</h3>
             <ul class="list">
-              <li class="example">A quarterly update on where the money went, with actual numbers</li>
-              <li class="example">First notice of events before they are announced publicly</li>
-              <li class="example">Name listed on the supporter wall, if you want it there</li>
-              <li class="example">An annual tax summary of your giving</li>
+              <li>Events and programs</li>
+              <li>Veteran support</li>
+              <li>Equipment packages</li>
+              <li>Healing and community</li>
             </ul>
-            <h3 style="margin-top:1.2rem">Why Monthly Helps More</h3>
-            <p class="example" style="margin-bottom:0">
-              $15 a month is $180 a year &mdash; more than most one-time gifts, easier on you, and it
-              arrives on a schedule we can actually plan against.
-            </p>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="anchor-section" id="other">
-      <div class="container content">
-        <h2>Other Ways to Give</h2>
-        <div class="split-2">
-          <article class="highlight">
-            <h3>Available Now</h3>
-            <dl class="def-list">
-              <dt>Check by mail</dt>
-              <dd><span class="example">Bows for Battle, Inc., 1234 Example Road, Barneveld, WI 53507</span></dd>
-              <dt>Employer matching</dt>
-              <dd class="example">Many employers match employee gifts dollar for dollar. Ask your HR department.</dd>
-              <dt>Business sponsorship</dt>
-              <dd><a href="sponsorship.html">Sponsorship tiers and what each one funds</a></dd>
-              <dt>Equipment and in-kind</dt>
-              <dd><a href="equip.html">Donate gear</a></dd>
-            </dl>
-          </article>
-          <aside class="highlight">
-            <h3>Coming Later</h3>
-            <p>
-              These are standard for established organizations and we will add them as we grow. Listing
-              them honestly as "not yet" is better than implying we already handle them.
-            </p>
-            <ul class="list">
-              <li class="example">Donor-advised fund grants</li>
-              <li class="example">Gifts of stock</li>
-              <li class="example">Vehicle donation</li>
-              <li class="example">Planned and legacy giving</li>
-            </ul>
-            <p class="example" style="margin-top:0.7rem;font-size:0.9rem;margin-bottom:0">
-              Want to give one of these ways now? Contact us directly and we will work it out.
-            </p>
           </aside>
         </div>
 
-        <p class="status-note" style="margin-top:1.2rem">
-          <strong>Before the donate button goes live:</strong> confirm Wisconsin charitable
-          solicitation registration with the Department of Financial Institutions, or document the
-          exemption for organizations under $25,000 per year with no paid employees. A donate button
-          legally constitutes solicitation. Any state-mandated disclosure text belongs in
-          <a href="legal.html#disclosures">the disclosures section</a>.
+        <p style="margin-top:1rem">
+          Questions about sponsorship benefits? See <a href="sponsorship.html">Business Sponsorship</a>
+          or email <a href="mailto:jessehall@bowsforbattle.org">jessehall@bowsforbattle.org</a>.
         </p>
       </div>
     </section>
@@ -1719,10 +1596,9 @@ page('sponsorship.html', 'Business Sponsorship',
           <article class="highlight">
             <h2>Sponsorship Inquiry</h2>
             <p class="form-inert">
-              <strong>Not yet active.</strong> This form is part of the site skeleton and does not
-              submit anywhere.
+              This form securely sends your details to our team.
             </p>
-            <form aria-label="Sponsorship inquiry form" onsubmit="return false;">
+            <form aria-label="Sponsorship inquiry form" class="email-form" data-form-title="Sponsorship Inquiry Form">
               <div class="field">
                 <label for="sp-company">Business Name</label>
                 <input id="sp-company" name="sp-company" type="text" autocomplete="organization">
@@ -1757,9 +1633,10 @@ page('sponsorship.html', 'Business Sponsorship',
           </article>
           <aside class="highlight">
             <h2>Our Partners</h2>
-            <p class="example">
-              We are actively seeking our first partners. If your business would like to be among them,
-              get in touch &mdash; early partners get named prominently and permanently.
+            <p>
+              Huge thanks to our earliest major sponsors: <strong>Sherwood Forest Bowmen</strong>
+              and <strong>BK3 Archery</strong>. Their support has been amazing to work with and makes
+              veteran programming possible.
             </p>
             <h2 style="margin-top:1.4rem">Prefer to give product?</h2>
             <p>
@@ -1790,12 +1667,9 @@ page('contact.html', 'Contact',
           <article class="highlight">
             <h2>Send a Message</h2>
             <p class="form-inert">
-              <strong>Not yet active.</strong> This form is part of the site skeleton and does not
-              submit anywhere. Before launch it needs a real backend so messages reach a monitored
-              inbox &mdash; a form that silently discards a veteran's message is worse than no form at
-              all.
+              This form securely sends your details to our team.
             </p>
-            <form aria-label="Contact form" onsubmit="return false;">
+            <form aria-label="Contact form" class="email-form" data-form-title="Contact Form">
               <div class="field">
                 <label for="full-name">Full Name</label>
                 <input id="full-name" name="full-name" type="text" autocomplete="name">
@@ -1834,13 +1708,11 @@ page('contact.html', 'Contact',
             <h2>Reach Us Directly</h2>
             <dl class="def-list">
               <dt>Email</dt>
-              <dd><a href="mailto:info@bowsforbattle.org" class="example">info@bowsforbattle.org</a></dd>
-              <dt>Phone</dt>
-              <dd><span class="example" data-org="phone">(608) 555-0142</span></dd>
+              <dd><a href="mailto:jessehall@bowsforbattle.org">jessehall@bowsforbattle.org</a></dd>
               <dt>Mailing address</dt>
-              <dd><span class="example" data-org="address">1234 Example Road, Barneveld, WI 53507</span></dd>
+              <dd><span data-org="address">N64W14960 Mill Rd, Menomonee Falls, WI 53051</span></dd>
               <dt>Response time</dt>
-              <dd class="example">We are entirely volunteer-run, so please allow up to a week for a reply.</dd>
+              <dd>Please allow up to a week for a reply.</dd>
             </dl>
 
             <h2 style="margin-top:1.4rem">Faster Routes</h2>
@@ -1938,7 +1810,7 @@ page('legal.html', 'Legal &amp; Policies',
         <h3>Your choices</h3>
         <p class="example">
           You can ask us what information we hold about you, correct it, or ask us to delete it. Email
-          info@bowsforbattle.org and we will respond within 30 days.
+          jessehall@bowsforbattle.org and we will respond within 30 days.
         </p>
 
         <h3>Children</h3>
@@ -2038,8 +1910,8 @@ page('legal.html', 'Legal &amp; Policies',
 
         <h3>Tell us about a problem</h3>
         <p class="example">
-          If any part of this site is difficult to use, email info@bowsforbattle.org or call
-          (608) 555-0142 and describe what happened. We will fix it and tell you when it is done. If
+          If any part of this site is difficult to use, email jessehall@bowsforbattle.org and
+          describe what happened. We will fix it and tell you when it is done. If
           you need information from this site in another format, ask and we will provide it.
         </p>
       </div>
@@ -2051,10 +1923,10 @@ page('legal.html', 'Legal &amp; Policies',
 
         <h3>Tax-exempt status</h3>
         <p>
-          <span class="example">Bows for Battle, Inc.</span> is a nonprofit corporation organized under
-          the laws of <span class="example">the State of Wisconsin</span> and recognized by the
+          <span>Bows for Battle, Inc.</span> is a nonprofit corporation organized under
+          the laws of <span>the State of Wisconsin</span> and recognized by the
           Internal Revenue Service as tax-exempt under Section 501(c)(3) of the Internal Revenue Code.
-          <span class="example">EIN: 12-3456789.</span> Contributions are tax-deductible to the extent
+          <span>EIN: 42-2771314.</span> Contributions are tax-deductible to the extent
           permitted by law.
         </p>
 
@@ -2066,9 +1938,8 @@ page('legal.html', 'Legal &amp; Policies',
         <p class="status-note">
           <strong>Confirm before launch.</strong> A donate button legally constitutes solicitation.
           Verify registration with the Wisconsin Department of Financial Institutions (dfi.wi.gov,
-          608-261-9555), or document the exemption available to organizations receiving $25,000 or less
-          per year with no paid employees and all work performed by volunteers. Once receipts exceed
-          $25,000, registration is required within 30 days.
+          608-261-9555), or document the applicable exemption if you qualify. Once receipts exceed
+          the exemption threshold, registration is required within 30 days.
           <br><br>
           Roughly 40 jurisdictions require registration triggered by online solicitation, and several
           require specific disclosure wording to appear verbatim wherever donations are accepted.
@@ -2080,8 +1951,8 @@ page('legal.html', 'Legal &amp; Policies',
         <h3>Public inspection of documents</h3>
         <p>
           Federal law requires us to make our exemption application, determination letter, and three
-          most recent annual returns available for public inspection. We post them on the
-          <a href="transparency.html">Transparency page</a> rather than making you ask.
+          most recent annual returns available for public inspection. You can request these directly by
+          email at <a href="mailto:jessehall@bowsforbattle.org">jessehall@bowsforbattle.org</a>.
         </p>
 
         <h3>No government affiliation</h3>

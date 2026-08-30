@@ -253,10 +253,14 @@
     if (empty) {
       empty.hidden = list.length > 0;
       if (!list.length) {
-        empty.innerHTML = showPast
-          ? '<strong>No past events.</strong> Bows for Battle has not held an event yet. ' +
-            'Once the first one happens it stays listed here.'
-          : '<strong>Nothing matches that filter.</strong> Choose "Everything" to see the full schedule.';
+        if (showPast) {
+          empty.innerHTML = '<strong>No past events are published yet.</strong>';
+        } else if (filter === 'all') {
+          empty.innerHTML = '<strong>No upcoming events are published right now.</strong> ' +
+            'Follow us on Facebook for the latest schedule updates.';
+        } else {
+          empty.innerHTML = '<strong>Nothing matches that filter.</strong> Choose "Everything" to see the full schedule.';
+        }
       }
     }
 

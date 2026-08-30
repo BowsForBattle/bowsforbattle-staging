@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Make a one-time donation to Bows for Battle, or join Anchor Point monthly giving.">
+  <meta name="description" content="Support Bows for Battle through sponsorship levels that fund events, veterans, and equipment packages.">
   <title>Bows for Battle | Donate</title>
   <link rel="icon" href="Pictures/Logo.png">
   <meta property="og:title" content="Bows for Battle | Donate">
-  <meta property="og:description" content="Make a one-time donation to Bows for Battle, or join Anchor Point monthly giving.">
+  <meta property="og:description" content="Support Bows for Battle through sponsorship levels that fund events, veterans, and equipment packages.">
   <meta property="og:image" content="Pictures/Logo.png">
   <meta property="og:type" content="website">
   <link rel="stylesheet" href="styles.css?v=2026.08.29.1">
@@ -35,11 +35,6 @@
     </div>
   </header>
 
-  <div class="example-legend">
-    <div class="container">
-      <p><strong>Draft site</strong> &mdash; highlighted text is example content showing what belongs in that spot. It is not real information and must be replaced before this site goes live. &middot; rev 2026.08.29.1</p>
-    </div>
-  </div>
   <nav class="subnav" aria-label="Section navigation">
     <div class="container">
         <a href="give.html">Give Overview</a>
@@ -53,50 +48,73 @@
       <div class="container narrow content">
         <p class="eyebrow">Give</p>
         <h1>Donate</h1>
-        <p>Rather than list tiers, here is what each amount actually pays for. These are real costs, not suggested levels.</p>
+        <p>Local businesses may sponsor events, veterans, or equipment packages. Your support directly helps us change lives and build a stronger veteran community.</p>
       </div>
     </section>
 
     <section class="anchor-section" id="one-time">
       <div class="container content">
-        <h2>Make a Donation</h2>
+        <h2>Sponsorship Levels</h2>
+        <figure class="highlight" style="padding:0;overflow:hidden">
+          <img src="Pictures/Sponsorship%20packages.png" alt="Bows for Battle sponsorship levels flyer" style="display:block;width:100%;height:auto">
+        </figure>
 
-        <div class="impact-tiers">
-          <div class="impact-tier">
-            <span class="amount example">$35</span>
-            <span class="buys example">A dozen arrows and a finger tab for one veteran</span>
-          </div>
-          <div class="impact-tier">
-            <span class="amount example">$75</span>
-            <span class="buys example">Range time for four veterans at a partner club</span>
-          </div>
-          <div class="impact-tier">
-            <span class="amount example">$150</span>
-            <span class="buys example">A complete starter setup &mdash; bow, arrows, release, armguard</span>
-          </div>
-          <div class="impact-tier">
-            <span class="amount example">$500</span>
-            <span class="buys example">Equipment and range costs for one full range day</span>
-          </div>
+        <div class="cards auto-fit" style="margin-top:1rem">
+          <article class="card">
+            <h3>Fuel Hope</h3>
+            <p style="font-weight:700">$0 - $249.00</p>
+            <p>Every gift-big or small-fuels hope and changes lives.</p>
+            <p style="margin-bottom:0">You'll be recognized on our website Supporter Wall.</p>
+          </article>
+          <article class="card">
+            <h3>Bronze Sponsor</h3>
+            <p style="font-weight:700">$250</p>
+            <ul class="list">
+              <li>Name listed on website and social media</li>
+              <li>Recognition at sponsored events</li>
+              <li>Thank you certificate of appreciation</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Silver Sponsor</h3>
+            <p style="font-weight:700">$500</p>
+            <ul class="list">
+              <li>All Bronze benefits</li>
+              <li>Logo listed on website and social media</li>
+              <li>Recognition at events</li>
+              <li>Thank you certificate of appreciation</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Gold Sponsor</h3>
+            <p style="font-weight:700">$1,000</p>
+            <ul class="list">
+              <li>All Silver benefits</li>
+              <li>Logo on event signage and promotional materials</li>
+              <li>Verbal recognition at events</li>
+              <li>Thank you certificate of appreciation</li>
+            </ul>
+          </article>
+          <article class="card">
+            <h3>Mission Sponsor</h3>
+            <p style="font-weight:700">$2,500+</p>
+            <ul class="list">
+              <li>All Gold benefits</li>
+              <li>Premier logo placement on all materials</li>
+              <li>Featured recognition in press and promotions</li>
+              <li>Opportunity for speaking or presenting at events</li>
+              <li>Thank you certificate of appreciation</li>
+            </ul>
+          </article>
         </div>
-
-        <p class="status-note">
-          <strong>Board input needed:</strong> replace these with the treasurer's real cost figures.
-          The strength of this format is that every number is verifiable &mdash; it describes a
-          mechanism rather than claiming an outcome, which is exactly what a new organization can
-          honestly say.
-        </p>
 
         <article class="highlight" style="margin-top:1.2rem">
           <h3>Donation Form</h3>
           <p class="form-inert">
-            <strong>Not yet active.</strong> This is a placeholder for the real donation embed. Nothing
-            here processes a payment, and no card details should ever be entered into a form we build
-            ourselves. The recommended platform is <span class="example">Zeffy</span> &mdash; 0% fees,
-            and it issues IRS-compliant receipts automatically, which matters given the $250
-            acknowledgment rule and the $75 quid pro quo disclosure rule.
+            This form securely sends your details to our team.
+            No payment is processed on this page.
           </p>
-          <form aria-label="Donation form" onsubmit="return false;">
+          <form aria-label="Donation form" class="email-form" data-form-title="Donation Form">
             <div class="field">
               <label for="don-amount">Amount (USD)</label>
               <input id="don-amount" name="don-amount" type="number" min="1" step="1">
@@ -116,99 +134,40 @@
             <button type="submit">Donate</button>
           </form>
           <p style="margin-top:0.8rem;font-size:0.88rem;margin-bottom:0">
-            You can also mail a check to <span class="example" data-org="address">1234 Example Road,
-            Barneveld, WI 53507</span>.
+            You can also mail a check to <span data-org="address">N64W14960 Mill Rd,
+            Menomonee Falls, WI 53051</span>.
           </p>
         </article>
       </div>
     </section>
 
-    <section class="anchor-section muted-section" id="monthly">
+    <section class="anchor-section muted-section" id="other">
       <div class="container content">
-        <h2>Monthly Giving &mdash; <span class="example">Anchor Point</span></h2>
+        <h2>Where Your Support Goes</h2>
         <div class="split-2">
           <article class="highlight">
+            <h3>100% Volunteer-Run</h3>
             <p>
-              An anchor point is the fixed spot where your string hand meets your face at full draw. It
-              is the reference that makes every shot repeatable. Without it, nothing else in the shot
-              holds together.
+              100% of your donation goes directly to support veterans and our programs.
             </p>
-            <p>
-              <span class="example">Anchor Point</span> is our monthly giving program, and it does the
-              same thing for the organization. Recurring gifts let us commit to a range day three
-              months out instead of waiting to see what comes in. For a volunteer-run nonprofit with no
-              reserves, that is the difference between planning and hoping.
-            </p>
-            <p>
-              Membership starts at <span class="example">$15 per month</span>. You can change or cancel
-              it at any time.
-            </p>
-            <p class="status-note" style="margin-top:1rem;font-size:0.9rem;margin-bottom:0">
-              <strong>Board approval needed on the name.</strong> Alternates if preferred: <em>The
-              Quiver</em>, <em>Full Draw Club</em>, <em>Point of Aim</em>. Every established
-              organization in this space brands its monthly program; unnamed recurring giving reads as
-              an afterthought.
+            <p style="margin-bottom:0">
+              We are a 100% volunteer-run organization. Every dollar makes a difference.
             </p>
           </article>
           <aside class="highlight">
-            <h3>What Members Get</h3>
+            <h3>Your Support Helps Fund</h3>
             <ul class="list">
-              <li class="example">A quarterly update on where the money went, with actual numbers</li>
-              <li class="example">First notice of events before they are announced publicly</li>
-              <li class="example">Name listed on the supporter wall, if you want it there</li>
-              <li class="example">An annual tax summary of your giving</li>
+              <li>Events and programs</li>
+              <li>Veteran support</li>
+              <li>Equipment packages</li>
+              <li>Healing and community</li>
             </ul>
-            <h3 style="margin-top:1.2rem">Why Monthly Helps More</h3>
-            <p class="example" style="margin-bottom:0">
-              $15 a month is $180 a year &mdash; more than most one-time gifts, easier on you, and it
-              arrives on a schedule we can actually plan against.
-            </p>
-          </aside>
-        </div>
-      </div>
-    </section>
-
-    <section class="anchor-section" id="other">
-      <div class="container content">
-        <h2>Other Ways to Give</h2>
-        <div class="split-2">
-          <article class="highlight">
-            <h3>Available Now</h3>
-            <dl class="def-list">
-              <dt>Check by mail</dt>
-              <dd><span class="example">Bows for Battle, Inc., 1234 Example Road, Barneveld, WI 53507</span></dd>
-              <dt>Employer matching</dt>
-              <dd class="example">Many employers match employee gifts dollar for dollar. Ask your HR department.</dd>
-              <dt>Business sponsorship</dt>
-              <dd><a href="sponsorship.html">Sponsorship tiers and what each one funds</a></dd>
-              <dt>Equipment and in-kind</dt>
-              <dd><a href="equip.html">Donate gear</a></dd>
-            </dl>
-          </article>
-          <aside class="highlight">
-            <h3>Coming Later</h3>
-            <p>
-              These are standard for established organizations and we will add them as we grow. Listing
-              them honestly as "not yet" is better than implying we already handle them.
-            </p>
-            <ul class="list">
-              <li class="example">Donor-advised fund grants</li>
-              <li class="example">Gifts of stock</li>
-              <li class="example">Vehicle donation</li>
-              <li class="example">Planned and legacy giving</li>
-            </ul>
-            <p class="example" style="margin-top:0.7rem;font-size:0.9rem;margin-bottom:0">
-              Want to give one of these ways now? Contact us directly and we will work it out.
-            </p>
           </aside>
         </div>
 
-        <p class="status-note" style="margin-top:1.2rem">
-          <strong>Before the donate button goes live:</strong> confirm Wisconsin charitable
-          solicitation registration with the Department of Financial Institutions, or document the
-          exemption for organizations under $25,000 per year with no paid employees. A donate button
-          legally constitutes solicitation. Any state-mandated disclosure text belongs in
-          <a href="legal.html#disclosures">the disclosures section</a>.
+        <p style="margin-top:1rem">
+          Questions about sponsorship benefits? See <a href="sponsorship.html">Business Sponsorship</a>
+          or email <a href="mailto:jessehall@bowsforbattle.org">jessehall@bowsforbattle.org</a>.
         </p>
       </div>
     </section>
@@ -228,15 +187,14 @@
     <div class="legal-band">
       <div class="container legal-grid">
         <div>
-          <p class="legal-name example">Bows for Battle, Inc.</p>
+          <p class="legal-name">Bows for Battle, Inc.</p>
           <p>
-            <span class="example" data-org="address">1234 Example Road, Barneveld, WI 53507</span><br>
-            <span class="example" data-org="phone">(608) 555-0142</span> &middot;
-            <a href="mailto:info@bowsforbattle.org" class="example">info@bowsforbattle.org</a>
+            <span data-org="address">N64W14960 Mill Rd, Menomonee Falls, WI 53051</span><br>
+            <a href="mailto:jessehall@bowsforbattle.org">jessehall@bowsforbattle.org</a>
           </p>
         </div>
         <div>
-          <p><span class="example">EIN: 12-3456789</span></p>
+          <p><span>EIN: 42-2771314</span></p>
           <p>
             Bows for Battle is a registered 501(c)(3) nonprofit organization.
             Contributions are tax-deductible to the extent permitted by law.
@@ -251,7 +209,6 @@
           <div>
             <h2>For Veterans</h2>
             <ul class="utility-links">
-              <li><a href="what-happens.html">What Happens</a></li>
               <li><a href="eligibility.html">Eligibility &amp; Apply</a></li>
               <li><a href="events.html">Events</a></li>
               <li><a href="safety.html">Safety</a></li>
@@ -273,7 +230,6 @@
               <li><a href="mission.html">Mission &amp; Vision</a></li>
               <li><a href="story.html">Our Story</a></li>
               <li><a href="board.html">Board &amp; Leadership</a></li>
-              <li><a href="transparency.html">Transparency</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
@@ -287,16 +243,16 @@
             </ul>
             <h2 style="margin-top:1rem">Follow</h2>
             <ul class="utility-links">
-              <li><a href="#" class="example">Facebook</a></li>
-              <li><a href="#" class="example">Instagram</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61590572042307" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom container" style="width:100%">
-          <p>&copy; 2026 <span class="example">Bows for Battle, Inc.</span> All rights reserved.</p>
+          <p>&copy; 2026 <span>Bows for Battle, Inc.</span> All rights reserved.</p>
         </div>
       </div>
     </div>
   </footer>
+  <script src="forms.js?v=2026.08.29.1"></script>
 </body>
 </html>

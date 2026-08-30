@@ -35,11 +35,6 @@
     </div>
   </header>
 
-  <div class="example-legend">
-    <div class="container">
-      <p><strong>Draft site</strong> &mdash; highlighted text is example content showing what belongs in that spot. It is not real information and must be replaced before this site goes live. &middot; rev 2026.08.29.1</p>
-    </div>
-  </div>
   <main class="internal-main" id="main">
     <section class="page-intro">
       <div class="container narrow content">
@@ -55,12 +50,9 @@
           <article class="highlight">
             <h2>Send a Message</h2>
             <p class="form-inert">
-              <strong>Not yet active.</strong> This form is part of the site skeleton and does not
-              submit anywhere. Before launch it needs a real backend so messages reach a monitored
-              inbox &mdash; a form that silently discards a veteran's message is worse than no form at
-              all.
+              This form securely sends your details to our team.
             </p>
-            <form aria-label="Contact form" onsubmit="return false;">
+            <form aria-label="Contact form" class="email-form" data-form-title="Contact Form">
               <div class="field">
                 <label for="full-name">Full Name</label>
                 <input id="full-name" name="full-name" type="text" autocomplete="name">
@@ -99,13 +91,11 @@
             <h2>Reach Us Directly</h2>
             <dl class="def-list">
               <dt>Email</dt>
-              <dd><a href="mailto:info@bowsforbattle.org" class="example">info@bowsforbattle.org</a></dd>
-              <dt>Phone</dt>
-              <dd><span class="example" data-org="phone">(608) 555-0142</span></dd>
+              <dd><a href="mailto:jessehall@bowsforbattle.org">jessehall@bowsforbattle.org</a></dd>
               <dt>Mailing address</dt>
-              <dd><span class="example" data-org="address">1234 Example Road, Barneveld, WI 53507</span></dd>
+              <dd><span data-org="address">N64W14960 Mill Rd, Menomonee Falls, WI 53051</span></dd>
               <dt>Response time</dt>
-              <dd class="example">We are entirely volunteer-run, so please allow up to a week for a reply.</dd>
+              <dd>Please allow up to a week for a reply.</dd>
             </dl>
 
             <h2 style="margin-top:1.4rem">Faster Routes</h2>
@@ -143,15 +133,14 @@
     <div class="legal-band">
       <div class="container legal-grid">
         <div>
-          <p class="legal-name example">Bows for Battle, Inc.</p>
+          <p class="legal-name">Bows for Battle, Inc.</p>
           <p>
-            <span class="example" data-org="address">1234 Example Road, Barneveld, WI 53507</span><br>
-            <span class="example" data-org="phone">(608) 555-0142</span> &middot;
-            <a href="mailto:info@bowsforbattle.org" class="example">info@bowsforbattle.org</a>
+            <span data-org="address">N64W14960 Mill Rd, Menomonee Falls, WI 53051</span><br>
+            <a href="mailto:jessehall@bowsforbattle.org">jessehall@bowsforbattle.org</a>
           </p>
         </div>
         <div>
-          <p><span class="example">EIN: 12-3456789</span></p>
+          <p><span>EIN: 42-2771314</span></p>
           <p>
             Bows for Battle is a registered 501(c)(3) nonprofit organization.
             Contributions are tax-deductible to the extent permitted by law.
@@ -166,7 +155,6 @@
           <div>
             <h2>For Veterans</h2>
             <ul class="utility-links">
-              <li><a href="what-happens.html">What Happens</a></li>
               <li><a href="eligibility.html">Eligibility &amp; Apply</a></li>
               <li><a href="events.html">Events</a></li>
               <li><a href="safety.html">Safety</a></li>
@@ -188,7 +176,6 @@
               <li><a href="mission.html">Mission &amp; Vision</a></li>
               <li><a href="story.html">Our Story</a></li>
               <li><a href="board.html">Board &amp; Leadership</a></li>
-              <li><a href="transparency.html">Transparency</a></li>
               <li><a href="contact.html">Contact</a></li>
             </ul>
           </div>
@@ -202,17 +189,17 @@
             </ul>
             <h2 style="margin-top:1rem">Follow</h2>
             <ul class="utility-links">
-              <li><a href="#" class="example">Facebook</a></li>
-              <li><a href="#" class="example">Instagram</a></li>
+              <li><a href="https://www.facebook.com/profile.php?id=61590572042307" target="_blank" rel="noopener noreferrer">Facebook</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom container" style="width:100%">
-          <p>&copy; 2026 <span class="example">Bows for Battle, Inc.</span> All rights reserved.</p>
+          <p>&copy; 2026 <span>Bows for Battle, Inc.</span> All rights reserved.</p>
         </div>
       </div>
     </div>
   </footer>
+  <script src="forms.js?v=2026.08.29.1"></script>
   <script src="data.js?v=2026.08.29.1"></script>
   <script src="events.js?v=2026.08.29.1"></script>
 </body>
