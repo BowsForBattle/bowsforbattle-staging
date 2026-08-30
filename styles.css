@@ -638,11 +638,8 @@ textarea:focus {
 }
 
 .home-sponsor-logo {
-  width: auto;
+  width: min(100%, 240px);
   height: auto;
-  max-width: min(100%, 260px);
-  max-height: 110px;
-  object-fit: contain;
   display: block;
 }
 
@@ -1058,7 +1055,7 @@ textarea:focus {
   }
 
   .home-sponsor-logo {
-    max-width: min(100%, 220px);
-    max-height: 84px;
+    width: min(100%, 190px);
+    height: auto;
   }
 }
