@@ -997,47 +997,6 @@ page('eligibility.html', 'Eligibility &amp; Apply',
 """)
 
 
-page('safety.html', 'Safety',
-     'Range safety standards, supervision and insurance for Bows for Battle sessions.',
-     phead('Programs', 'Range Safety',
-           'Every session is supervised. These are the standards we hold ourselves to, and what we '
-           'bring to any range or property that hosts us.')
-     + """    <section class="anchor-section">
-      <div class="container content">
-        <div class="split-2">
-          <article class="highlight">
-            <h2>Our Standards</h2>
-            <ul class="list">
-              <li class="example">All sessions are supervised by a certified instructor.</li>
-              <li class="example">A safety briefing is mandatory before every session, including for returning participants.</li>
-              <li class="example">Whistle commands control the line. Nobody goes downrange until the line is called clear.</li>
-              <li class="example">Equipment is inspected before each session.</li>
-              <li class="example">No alcohol before or during sessions.</li>
-              <li class="example">A signed liability waiver is required before shooting.</li>
-              <li class="example">Field points only. No broadheads.</li>
-            </ul>
-          </article>
-          <aside class="highlight">
-            <h2>Insurance</h2>
-            <p class="example">
-              Bows for Battle carries general liability and participant accident coverage, and
-              directors and officers coverage for its board. Certificates are available to partner
-              ranges and landowners on request.
-            </p>
-            <p class="status-note" style="margin-top:0.8rem">
-              <strong>Required before any event runs.</strong> Landowners and ranges will ask for proof
-              of coverage before allowing an event on their property.
-            </p>
-            <p style="margin-bottom:0">
-              <a class="link-button alt" href="host.html">Hosting Us? What We Bring</a>
-            </p>
-          </aside>
-        </div>
-      </div>
-    </section>
-""")
-
-
 # ===========================================================================
 # EVENTS
 # ===========================================================================
