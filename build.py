@@ -65,6 +65,7 @@ SECTIONS = {
     ],
     "give.html": [
         ("donate.html",      "Donate"),
+      ("sponsors.html",    "Sponsors &amp; Partners"),
         ("sponsorship.html", "Business Sponsorship"),
     ],
 }
@@ -263,6 +264,7 @@ def hub_cards(page):
         'host.html':         'Land, range access, hunting property, or a guided day.',
         'volunteer.html':    'Help at events, mentor, or simply show up.',
         'donate.html':       'One-time gifts and monthly giving.',
+        'sponsors.html':     'Recognized sponsors and direct links to their websites and social pages.',
         'sponsorship.html':  'Business sponsorship tiers and what each one funds.',
     }
     out = ['    <section class="anchor-section">\n      <div class="container content">\n',
@@ -397,11 +399,11 @@ page('index.html', 'Home',
           <p class="section-head">Community Partners</p>
           <h2>Local support is already showing up.</h2>
           <p>
-            Sherwood Forest Bowmen and BK3 Archery have been incredible early partners for
+            Sherwood Forest Bowmen and BK III Archery have been incredible early partners for
             Bows for Battle. Their support is helping us launch strong and serve veterans well.
           </p>
           <div class="home-actions">
-            <a class="link-button alt" href="sponsorship.html">Business Sponsorship</a>
+            <a class="link-button alt" href="sponsors.html">Sponsors &amp; Partners</a>
           </div>
         </aside>
       </div>
@@ -440,6 +442,33 @@ page('index.html', 'Home',
         </div>
       </div>
     </section>
+
+    <section class="home-section">
+      <div class="container content">
+        <article class="home-sponsor-band">
+          <p class="section-head">Sponsor Thanks</p>
+          <h2>Thank you for your continued support.</h2>
+          <p>
+            We are deeply grateful for the continued support from our sponsors. Their commitment
+            helps us put equipment in veterans' hands and keep programs moving.
+          </p>
+          <div class="home-sponsor-grid">
+            <article class="home-sponsor-card">
+              <a class="home-sponsor-link" href="https://www.facebook.com/sherwoodforestbowmen" target="_blank" rel="noopener" aria-label="Visit Sherwood Forest Bowmen on Facebook">
+                <img class="home-sponsor-logo" src="Pictures/Sherwood%20bowmens%20logo.jpg" alt="Sherwood Forest Bowmen logo">
+              </a>
+              <h3>Sherwood Forest Bowmen</h3>
+            </article>
+            <article class="home-sponsor-card">
+              <a class="home-sponsor-link" href="https://www.facebook.com/profile.php?id=100057648699845" target="_blank" rel="noopener" aria-label="Visit BK III Archery on Facebook">
+                <img class="home-sponsor-logo" src="Pictures/BK%20III%20Archery%20Sponsor%20Logo.png" alt="BK III Archery sponsor logo">
+              </a>
+              <h3>BK III Archery</h3>
+            </article>
+          </div>
+        </article>
+      </div>
+    </section>
 """)
 
 
@@ -453,7 +482,24 @@ page('about.html', 'About',
            'Bows for Battle is a new organization. These pages tell you what we intend to do, who is '
            'accountable for doing it, and where the money goes &mdash; without asking you to take any '
            'of it on faith.')
-     + hub_cards('about.html'))
+     + hub_cards('about.html')
+     + """    <section class="programs-media-row">
+      <div class="container programs-gallery">
+        <figure class="highlight programs-photo">
+          <img src="Pictures/gathering.jpg" alt="Bows for Battle community gathering outdoors">
+          <figcaption>Community comes first. Connection is part of the mission.</figcaption>
+        </figure>
+        <figure class="highlight programs-photo">
+          <img src="Pictures/scenery 1.jpg" alt="Wisconsin outdoor landscape where veterans can reconnect">
+          <figcaption>Time outdoors creates space to reset and refocus.</figcaption>
+        </figure>
+        <figure class="highlight programs-photo">
+          <img src="Pictures/Flag backgroun.jpg" alt="American flag representing service and commitment">
+          <figcaption>Built to serve veterans with consistency, respect, and accountability.</figcaption>
+        </figure>
+      </div>
+    </section>
+""")
 
 
 page('mission.html', 'Mission &amp; Vision',
@@ -552,6 +598,10 @@ page('story.html', 'Our Story',
               donors. If the story touches a personal crisis, pair it with the crisis line and follow
               safe-messaging guidance.
             </p>
+            <figure class="highlight programs-photo" style="margin-top:1rem">
+              <img src="Pictures/bow in tree.jpg" alt="Bow resting in a tree near an outdoor range">
+              <figcaption>Archery gives veterans a steady place to return to, one session at a time.</figcaption>
+            </figure>
           </article>
           <aside class="highlight">
             <h2>Where We Are Right Now</h2>
@@ -1049,6 +1099,23 @@ page('events.html', 'Events',
       </div>
     </section>
 
+    <section class="programs-media-row">
+      <div class="container programs-gallery">
+        <figure class="highlight programs-photo">
+          <img src="Pictures/gathering 2.jpg" alt="Community supporters gathered at a Bows for Battle event">
+          <figcaption>Events bring veterans, families, and supporters together.</figcaption>
+        </figure>
+        <figure class="highlight programs-photo">
+          <img src="Pictures/gathering 3.jpg" alt="Bows for Battle event attendees in conversation">
+          <figcaption>Shared experiences build trust and long-term support.</figcaption>
+        </figure>
+        <figure class="highlight programs-photo">
+          <img src="Pictures/scenery 2.jpg" alt="Outdoor setting used for community and archery events">
+          <figcaption>Outdoor spaces help restore focus, calm, and connection.</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="anchor-section muted-section" id="calendar">
       <div class="container content">
         <h2>Put the Season on Your Phone</h2>
@@ -1523,8 +1590,62 @@ page('donate.html', 'Donate',
 
         <p style="margin-top:1rem">
           Questions about sponsorship benefits? See <a href="sponsorship.html">Business Sponsorship</a>
-          or email <a href="mailto:jessehall@bowsforbattle.org">jessehall@bowsforbattle.org</a>.
+          or view our <a href="sponsors.html">Sponsors &amp; Partners</a> page.
         </p>
+      </div>
+    </section>
+""")
+
+
+page('sponsors.html', 'Sponsors &amp; Partners',
+     'A recognition page for businesses and organizations that support Bows for Battle, with direct website and social links.',
+     phead('Give', 'Sponsors &amp; Partners',
+           'We are grateful for every business and organization that backs veteran programming through '
+           'Bows for Battle. Please support the partners who support our mission.')
+     + """    <section class="anchor-section">
+      <div class="container content">
+        <div class="person-grid">
+          <article class="person">
+            <h3>Sherwood Forest Bowmen</h3>
+            <p class="role">Community Partner</p>
+            <a href="https://www.facebook.com/sherwoodforestbowmen" target="_blank" rel="noopener" aria-label="Visit Sherwood Forest Bowmen on Facebook" style="display:block;margin-bottom:0.7rem">
+              <img class="portrait" src="Pictures/Sherwood%20bowmens%20logo.jpg" alt="Sherwood Forest Bowmen logo">
+            </a>
+            <p>
+              Early support and partnership that helps make veteran-focused archery programming possible.
+            </p>
+            <p style="margin-bottom:0">
+              <a href="https://www.sherwoodforestbowmen.com" target="_blank" rel="noopener">Website</a>
+              &nbsp;|&nbsp;
+              <a href="https://www.facebook.com/sherwoodforestbowmen" target="_blank" rel="noopener">Facebook</a>
+            </p>
+          </article>
+
+          <article class="person">
+            <h3>BK III Archery</h3>
+            <p class="role">Community Partner</p>
+            <a href="https://www.facebook.com/profile.php?id=100057648699845" target="_blank" rel="noopener" aria-label="Visit BK III Archery on Facebook" style="display:block;margin-bottom:0.7rem">
+              <img class="portrait" src="Pictures/BK%20III%20Archery%20Sponsor%20Logo.png" alt="BK III Archery sponsor logo">
+            </a>
+            <p>
+              A valued supporter helping equip and encourage veterans through archery.
+            </p>
+            <p style="margin-bottom:0">
+              <a href="https://www.facebook.com/profile.php?id=100057648699845" target="_blank" rel="noopener">Facebook</a>
+            </p>
+          </article>
+        </div>
+
+        <div class="highlight" style="margin-top:1rem">
+          <h2>Want To Be Listed Here?</h2>
+          <p>
+            Businesses and groups that sponsor Bows for Battle can be recognized here with links to
+            their website and social pages.
+          </p>
+          <p style="margin-bottom:0">
+            <a class="link-button" href="sponsorship.html">Become a Sponsor</a>
+          </p>
+        </div>
       </div>
     </section>
 """)
@@ -1635,7 +1756,7 @@ page('sponsorship.html', 'Business Sponsorship',
             <h2>Our Partners</h2>
             <p>
               Huge thanks to our earliest major sponsors: <strong>Sherwood Forest Bowmen</strong>
-              and <strong>BK3 Archery</strong>. Their support has been amazing to work with and makes
+              and <strong>BK III Archery</strong>. Their support has been amazing to work with and makes
               veteran programming possible.
             </p>
             <h2 style="margin-top:1.4rem">Prefer to give product?</h2>
